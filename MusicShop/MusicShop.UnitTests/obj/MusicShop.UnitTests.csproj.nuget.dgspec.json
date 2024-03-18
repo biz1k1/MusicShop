@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\MusicShop\\MusicShop.UnitTests\\MusicShop.UnitTests.csproj": {}
+    "D:\\visual_studio\\repo\\MusicShop\\MusicShop.UnitTests\\MusicShop.UnitTests.csproj": {}
   },
   "projects": {
-    "D:\\MusicShop\\MusicShop.UnitTests\\MusicShop.UnitTests.csproj": {
+    "D:\\visual_studio\\repo\\MusicShop\\MusicShop.UnitTests\\MusicShop.UnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MusicShop\\MusicShop.UnitTests\\MusicShop.UnitTests.csproj",
+        "projectUniqueName": "D:\\visual_studio\\repo\\MusicShop\\MusicShop.UnitTests\\MusicShop.UnitTests.csproj",
         "projectName": "MusicShop.UnitTests",
-        "projectPath": "D:\\MusicShop\\MusicShop.UnitTests\\MusicShop.UnitTests.csproj",
+        "projectPath": "D:\\visual_studio\\repo\\MusicShop\\MusicShop.UnitTests\\MusicShop.UnitTests.csproj",
         "packagesPath": "C:\\Users\\SystemX\\.nuget\\packages\\",
-        "outputPath": "D:\\MusicShop\\MusicShop.UnitTests\\obj\\",
+        "outputPath": "D:\\visual_studio\\repo\\MusicShop\\MusicShop.UnitTests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\MusicShop\\MusicShop\\MusicShop.csproj": {
-                "projectPath": "D:\\MusicShop\\MusicShop\\MusicShop.csproj"
+              "D:\\visual_studio\\repo\\MusicShop\\MusicShop\\MusicShop.csproj": {
+                "projectPath": "D:\\visual_studio\\repo\\MusicShop\\MusicShop\\MusicShop.csproj"
               }
             }
           }
@@ -106,14 +106,14 @@
         }
       }
     },
-    "D:\\MusicShop\\MusicShop\\MusicShop.csproj": {
+    "D:\\visual_studio\\repo\\MusicShop\\MusicShop\\MusicShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MusicShop\\MusicShop\\MusicShop.csproj",
+        "projectUniqueName": "D:\\visual_studio\\repo\\MusicShop\\MusicShop\\MusicShop.csproj",
         "projectName": "MusicShop",
-        "projectPath": "D:\\MusicShop\\MusicShop\\MusicShop.csproj",
+        "projectPath": "D:\\visual_studio\\repo\\MusicShop\\MusicShop\\MusicShop.csproj",
         "packagesPath": "C:\\Users\\SystemX\\.nuget\\packages\\",
-        "outputPath": "D:\\MusicShop\\MusicShop\\obj\\",
+        "outputPath": "D:\\visual_studio\\repo\\MusicShop\\MusicShop\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -155,6 +155,18 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
+            "FluentResults": {
+              "target": "Package",
+              "version": "[3.15.2, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.0, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.9.0, )"
+            },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
               "version": "[7.0.15, )"
@@ -188,6 +200,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.4.0, )"
             }
           },
           "imports": [

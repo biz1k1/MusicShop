@@ -1,5 +1,8 @@
-﻿namespace MusicShop.Domain.Model
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace MusicShop.Domain.Model
 {
+    [Index(nameof(Email), IsUnique = true)]
     public class User
     {
         public Guid Id { get; set; } = Guid.NewGuid();

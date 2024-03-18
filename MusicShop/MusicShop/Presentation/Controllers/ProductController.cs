@@ -1,8 +1,13 @@
 ﻿using AutoMapper;
+using Azure.Core;
+using FluentValidation;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MusicShop.Application.Common.Behavior;
 using MusicShop.Domain.Model;
 using MusicShop.Infrastructure.Data;
+using MusicShop.Presentation.Common.DTOs.Authentication;
 using MusicShop.Presentation.Common.DTOs.Category;
 using MusicShop.Presentation.Common.DTOs.Product;
 
@@ -14,10 +19,12 @@ namespace MusicShop.Presentation.Controllers
     {
         private readonly DataContext db;
         private readonly IMapper mapper;
-        public ProductController(DataContext context, IMapper _mapper)
+        private readonly IValidator<ProductRequest> _validator;
+        public ProductController(DataContext context, IMapper _mapper, IValidator<ProductRequest> validator)
         {
             db = context;
             mapper = _mapper;
+            _validator = validator;
         }
         [HttpGet]
         [Route(template: "GetAllByCategory")]
@@ -51,6 +58,11 @@ namespace MusicShop.Presentation.Controllers
         [Route(template: "Add")]
         public async Task<ActionResult> Add(ProductRequest product)
         {
+            ValidationResult validationResult = await _validator.ValidateAsync(product);
+            if (!validationResult.IsValid)
+            {
+                return ValidationProblem(BehaviorExtensions.AddToModelState(validationResult));
+            }
             var category = await db.Categories.Where(x => x.Id == product.CategoryId).FirstOrDefaultAsync();
             var responseProduct = mapper.Map<Product>(product);
             if (category == null)

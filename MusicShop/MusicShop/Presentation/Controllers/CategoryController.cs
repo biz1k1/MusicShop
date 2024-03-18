@@ -6,6 +6,11 @@ using MusicShop.Domain.Model;
 using MusicShop.Presentation.Common.DTOs.Category;
 using MusicShop.Application.Services;
 using MusicShop.Application.Services.ServiceHandler;
+using MusicShop.Application.Common.Behavior;
+using FluentValidation;
+using MusicShop.Presentation.Common.DTOs.Authentication;
+using Azure.Core;
+using FluentValidation.Results;
 namespace MusicShop.Presentation.Controllers
 {
     [ApiController]
@@ -15,11 +20,13 @@ namespace MusicShop.Presentation.Controllers
         private readonly DataContext _db;
         private readonly IMapper _mapper;
         private readonly ICategoryServicesHandler _services;
-        public CategoryController(DataContext context, IMapper mapper, ICategoryServicesHandler services)
+        private readonly IValidator<CategoryRequest> _validator;
+        public CategoryController(DataContext context, IMapper mapper, ICategoryServicesHandler services, IValidator<CategoryRequest> validator)
         {
             _db = context;
             _mapper = mapper;
             _services = services;
+            _validator = validator;
 
         }
 
@@ -28,7 +35,6 @@ namespace MusicShop.Presentation.Controllers
         [HttpGet]
         public async Task<ActionResult> GetCategories()
         {
-            var allCategories = await _db.Categories.ToListAsync();
             var FullTreeCategories = _services.GetFullTreeCategories();
             var categoriesResponse = _mapper.Map<List<Category>, List<CategoryResponse>>((List<Category>)FullTreeCategories);
             return Ok(categoriesResponse);
@@ -48,6 +54,11 @@ namespace MusicShop.Presentation.Controllers
         [HttpPost]
         public async Task<ActionResult> AddCategory(CategoryRequest category)
         {
+            ValidationResult validationResult = await _validator.ValidateAsync(category);
+            if (!validationResult.IsValid)
+            {
+                return ValidationProblem(BehaviorExtensions.AddToModelState(validationResult));
+            }
             var responseCategory = _mapper.Map<Category>(category);
             var subCategory = await _db.Categories.FindAsync(category.SubCategoryId);
             if (subCategory != null)

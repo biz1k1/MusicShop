@@ -21,12 +21,19 @@ namespace MusicShop.Infrastructure.Data
                 .HasForeignKey(d => d.Category);
         }
     }
-    public class Productonfiguration : IEntityTypeConfiguration<Product>
+    public class ProductConfiguration : IEntityTypeConfiguration<Product>
     {
         public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
+        }
+    }
+    public class UserConfiguration : IEntityTypeConfiguration<User>
+    {
+        public void Configure(EntityTypeBuilder<User> builder)
+        {
+            builder.HasKey(x => x.Id);
         }
     }
 }

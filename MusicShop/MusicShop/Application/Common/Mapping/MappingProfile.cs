@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
+using MusicShop.Application.Common.Models;
 using MusicShop.Application.Services.Authentication;
 using MusicShop.Domain.Model;
 using MusicShop.Presentation.Common.DTOs.Authentication;
 using MusicShop.Presentation.Common.DTOs.Category;
 using MusicShop.Presentation.Common.DTOs.Product;
-namespace MusicShop.Presentation.Common.Mapping
+namespace MusicShop.Application.Common.Mapping
 {
     public class MappingProfile : Profile
     {
@@ -26,12 +27,18 @@ namespace MusicShop.Presentation.Common.Mapping
             // Product
             CreateMap<Product, ProductRequest>();
             CreateMap<ProductRequest, Product>();
+
             CreateMap<Product, ProductResponse>()
                 .ForMember(dest => dest.CategoryId, src => src.MapFrom(x => x.Category.Id));
+
             CreateMap<ProductRequestUpdate, Product>();
             //Authentication
-            CreateMap<AuthenticationResult, AuthenticationResponse>();
-            CreateMap< AuthenticationResponse, AuthenticationResult>();
+
+            CreateMap<LoginRequest,LoginDTO>();
+            CreateMap<LoginDTO, LoginRequest>();
+
+            CreateMap<RegisterRequest, RegisterDTO>();
+            CreateMap<RegisterDTO, RegisterRequest>();
         }
 
 

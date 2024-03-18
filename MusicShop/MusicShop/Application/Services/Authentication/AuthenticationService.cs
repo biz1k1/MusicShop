@@ -1,56 +1,87 @@
-﻿using MusicShop.Application.Common.Interfaces.Authentication;
-using MusicShop.Application.Common.Interfaces.Persistence;
+﻿using Microsoft.EntityFrameworkCore;
+using MusicShop.Application.Common.Errors;
+using MusicShop.Application.Common.Interfaces.Authentication;
 using MusicShop.Domain.Model;
+using MusicShop.Infrastructure.Data;
 using MusicShop.Presentation.Common.DTOs.Authentication;
+using FluentResults;
+using Azure.Core;
+using System.Diagnostics;
+using AutoMapper;
+using MusicShop.Application.Common.Models;
 
 namespace MusicShop.Application.Services.Authentication
 {
     public class AuthenticationService : IAuthService
     {
         private readonly IJwtTokenGenerator _jwtTokenGenerator;
-        private readonly IUserRepository _userRepository;
-        public AuthenticationService(IUserRepository userRepository,IJwtTokenGenerator jwtTokenGenerator)
+        private readonly DataContext _db;
+        private readonly IMapper _mapper;
+        public AuthenticationService(IJwtTokenGenerator jwtTokenGenerator,DataContext context,IMapper mapper)
         {
-            _userRepository = userRepository;
+            _db = context;
             _jwtTokenGenerator = jwtTokenGenerator;
+            _mapper = mapper;
+            
         }
-        public AuthenticationResult Login(string email, string password)
+        public AuthenticationResult Login(LoginRequest request)
         {
-            if(_userRepository.GetUserByEmail(email) is not User user)
+            var loginDTO = _mapper.Map<LoginRequest,LoginDTO>(request);
+
+            //check
+            var userByEmail = _db.Users.SingleOrDefault(x => x.Email == loginDTO.Email);
+            if (userByEmail is not User user)
             {
-                throw new Exception("User doesnt exist");
+                throw new InvalidEmail();
             }
-            if (user.Password != password)
+            if (user.Password != user.Password)
             {
-                throw new Exception("Invalid password");
+                throw new InvalidPassword();
             }
-            var token = _jwtTokenGenerator.GenerateToken();
-            return new AuthenticationResult(
-                    user.Id,
-                    user.FirstName,
-                    user.LastName,
-                    email,
-                    token);
+            //generate token
+            var token = _jwtTokenGenerator.GenerateToken(user.Id, user.FirstName, user.LastName);
+            return new AuthenticationResult
+            {
+                    Id=user.Id,
+                    FirstName =user.FirstName,
+                    LastName= user.LastName,
+                    Email=" ",
+                    Token=token
+            };
         }
 
-        public AuthenticationResult Register(string firstName, string lastName, string email, string password)
+        public AuthenticationResult Register(RegisterRequest request)
         {
-            //Проверна на дубликат
-            if (_userRepository.GetUserByEmail(email) == null)
+            var registerDTO = _mapper.Map<RegisterRequest,RegisterDTO>(request);
+
+            //check
+            var userByEmail = _db.Users.SingleOrDefault(x => x.Email == registerDTO.Email);
+            if (userByEmail is not null)
             {
-                throw new Exception("Duplicate email");
+                throw new DuplicateEmailError();
             }
-            //Создание юзера
-            var User = new User()
+
+            //create user
+            var user = new User
             {
-                FirstName = firstName,
-                LastName = lastName,
-                Email = email,
-                Password = password
+                FirstName = registerDTO.FirstName,
+                LastName = registerDTO.LastName,
+                Email = registerDTO.Email,
+                Password = registerDTO.Password
             };
-            //Создание jwt токена
-            var token = _jwtTokenGenerator.GenerateToken();
-            return Results;
+            _db.Users.AddAsync(user);
+            _db.SaveChangesAsync();
+            //generate token
+            var token = _jwtTokenGenerator.GenerateToken(user.Id, registerDTO.FirstName, registerDTO.LastName);
+
+            return new AuthenticationResult
+            {
+                Id = user.Id,
+                FirstName=user.FirstName,
+                LastName=user.LastName,
+                Email=user.Email,
+                Token=token
+            };
         }
     }
 }

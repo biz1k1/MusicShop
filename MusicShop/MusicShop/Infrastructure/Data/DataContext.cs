@@ -7,11 +7,9 @@ namespace MusicShop.Infrastructure.Data
     {
         public DbSet<Category> Categories { get; set; } = null!;
         public DbSet<Product> Products { get; set; } = null!;
+        public DbSet<User> Users { get; set; } = null!;
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
-        internal async Task<ICollection<Category>> FindAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }
