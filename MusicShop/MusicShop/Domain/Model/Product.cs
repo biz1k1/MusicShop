@@ -13,6 +13,5 @@ namespace MusicShop.Domain.Model
         public int InStock { get; set; }
         public double Price { get; set; }
         public Category Category { get; set; }
-        public string PathToPictures { get; set; } = string.Empty;
     }
 }

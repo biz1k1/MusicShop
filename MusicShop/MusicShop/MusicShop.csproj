@@ -40,8 +40,4 @@
     <None Update="..\.dockerignore" Link="Web\.dockerignore" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Infrastructure\Migrations\" />
-  </ItemGroup>
-
 </Project>

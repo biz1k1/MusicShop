@@ -5,10 +5,11 @@ namespace MusicShop.Infrastructure.Data
 {
     public class DataContext : DbContext
     {
-        public DbSet<Category> Categories { get; set; } = null!;
-        public DbSet<Product> Products { get; set; } = null!;
-        public DbSet<User> Users { get; set; } = null!;
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
+        //public DataContext() { }
+        public DbSet<Category> Categories { get; set; } 
+        public DbSet<Product> Products { get; set; } 
+        public  DbSet<User> Users { get; set; } 
 
         
     }

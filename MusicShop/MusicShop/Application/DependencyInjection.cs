@@ -8,8 +8,9 @@ using MusicShop.Application.Services.JwtTokenGenerator;
 using FluentValidation;
 using MusicShop.Application.Common.Behavior;
 using MusicShop.Presentation.Common.FilterError;
-using MusicShop.Application.Services.Authentication.Identity;
-using Microsoft.Extensions.Options;
+using MusicShop.Infrastructure.Repository;
+using MusicShop.Domain.Model;
+
 
 namespace MusicShop.Application
 {
@@ -31,11 +32,17 @@ namespace MusicShop.Application
             services.AddValidatorsFromAssemblyContaining<RegisterRequestValidator>();
             services.AddValidatorsFromAssemblyContaining<CategoryRequestValidator>();
             services.AddValidatorsFromAssemblyContaining<ProductRequestValidator>();
+
+
             //Services
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             //Connection string
             services.AddDbContext<DataContext>(options => options.UseSqlServer(configuration.GetConnectionString("DB")));
-            
+
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<DbContext, DataContext>();
+
             return services;
         }
         
