@@ -11,14 +11,14 @@ namespace MusicShop.Infrastructure.Repository
             _dbContext = dbContext;
         }
 
-        public IQueryable<T> GetAll()
+        public async Task <T> GetAll()
         {
-            return _dbContext.Set<T>().AsNoTracking();
+            //return _dbContext.Set<T>().AsNoTracking();
         }
 
-        public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression)
+        public async Task<T> FindByCondition(Expression<Func<T, bool>> expression)
         {
-            return _dbContext.Set<T>().Where(expression).AsNoTracking();
+            //return _dbContext.Set<T>().Where(expression).AsNoTracking();
         }
 
         public void Create(T entity)

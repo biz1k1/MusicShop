@@ -7,6 +7,9 @@ using MusicShop.Application.Services.ServiceHandler;
 using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using MusicShop.Infrastructure.Repository;
+using MusicShop.Application.Services.Authentication.Identity;
+using FluentValidation.Results;
+using MusicShop.Application.Common.Behavior;
 namespace MusicShop.Presentation.Controllers
 {
     [ApiController]
@@ -14,13 +17,13 @@ namespace MusicShop.Presentation.Controllers
     [Route("api/[controller]")]
     public class CategoryController : ControllerBase
     {
-        private readonly IUnitOfWork _repository;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly ICategoryServicesHandler _services;
         private readonly IValidator<CategoryRequest> _validator;
         public CategoryController(IUnitOfWork repository, IMapper mapper, ICategoryServicesHandler services, IValidator<CategoryRequest> validator)
         {
-            _repository = repository;
+            _unitOfWork = repository;
             _mapper = mapper;
             _services = services;
             _validator = validator;
@@ -40,7 +43,7 @@ namespace MusicShop.Presentation.Controllers
         public async Task<ActionResult> GetCategoryById(int id)
         {
             // var category = _db.Categories.Where(x => x.Id == id).Include(x => x.ChildCategories).ThenInclude(x => x.ChildCategories).ToList();
-            var category = _repository.Category.FindByCondition(x => x.Id == id).Include(x => x.ChildCategories).ThenInclude(x => x.ChildCategories).ToList();
+            var category = _unitOfWork.Category.FindByCondition(x => x.Id == id).Include(x => x.ChildCategories).ThenInclude(x => x.ChildCategories).ToList();
             if (category == null)
             {
                 return BadRequest("Category not found");
@@ -50,7 +53,7 @@ namespace MusicShop.Presentation.Controllers
         }
 
         //[Route(template: "Add")]
-        //[Authorize(Policy =IdentityData.Admin)]
+        //[Authorize(Policy = IdentityData.Admin)]
         //[HttpPost]
         //public async Task<ActionResult> AddCategory(CategoryRequest category)
         //{
@@ -60,7 +63,7 @@ namespace MusicShop.Presentation.Controllers
         //        return ValidationProblem(BehaviorExtensions.AddToModelState(validationResult));
         //    }
         //    var responseCategory = _mapper.Map<Category>(category);
-        //    var subCategory = await _db.Categories.FindAsync(category.SubCategoryId);
+        //    var subCategory = await _unitOfWork.Category.FindByCondition(category.SubCategoryId);
         //    if (subCategory != null)
         //    {
         //        subCategory.ChildCategories.Add(responseCategory);
@@ -70,37 +73,37 @@ namespace MusicShop.Presentation.Controllers
         //    return Ok();
         //}
 
-        //[Route(template: "Delete")]
-        //[Authorize(Policy = IdentityData.Admin)]
-        //[HttpDelete]
-        //public async Task<ActionResult> Delete(int id)
-        //{
-        //    Category category = await _db.Categories.FindAsync(id);
-        //    if (category == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    _db.Categories.Remove(category);
-        //    await _db.SaveChangesAsync();
-        //    return Ok();
-        //}
+        [Route(template: "Delete")]
+        [Authorize(Policy = IdentityData.Admin)]
+        [HttpDelete]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var category =  _unitOfWork.Category.FindByCondition(x => x.Id == id);
+            if (category == null)
+            {
+                return NotFound();
+            }
+            _db.Categories.Remove(category);
+            await _db.SaveChangesAsync();
+            return Ok();
+        }
 
-        //[Route(template: "Update")]
-        //[Authorize(Policy = IdentityData.Admin)]
-        //[HttpPatch]
-        //public async Task<ActionResult> Update(CategoryResponseUpdate category)
-        //{
-        //    var foundCategory = await _db.Categories.FindAsync(category.Id);
-        //    if (foundCategory == null)
-        //    {
-        //        return BadRequest("Category not found");
-        //    }
+        [Route(template: "Update")]
+        [Authorize(Policy = IdentityData.Admin)]
+        [HttpPatch]
+        public async Task<ActionResult> Update(CategoryResponseUpdate category)
+        {
+            var foundCategory = await _db.Categories.FindAsync(category.Id);
+            if (foundCategory == null)
+            {
+                return BadRequest("Category not found");
+            }
 
-        //    foundCategory.Name = category.Name;
-        //    foundCategory.ParentCategoryId = category.ParentCategoryId;
-        //    await _db.SaveChangesAsync();
-        //    return Ok();
-        //}
+            foundCategory.Name = category.Name;
+            foundCategory.ParentCategoryId = category.ParentCategoryId;
+            await _db.SaveChangesAsync();
+            return Ok();
+        }
 
     }
 }

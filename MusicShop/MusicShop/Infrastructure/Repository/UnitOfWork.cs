@@ -7,6 +7,7 @@ namespace MusicShop.Infrastructure.Repository
         private readonly DbContext _dbContext;
         private ICategoryRepository _category;
         private IProductRepository _product;
+        private IUserRepository _user;
         public UnitOfWork(DbContext dbContext)
         {
             _dbContext = dbContext;
@@ -31,6 +32,17 @@ namespace MusicShop.Infrastructure.Repository
                     _product = new ProductRepository(_dbContext);
                 }
                 return _product;
+            }
+        }
+        public IUserRepository User
+        {
+            get
+            {
+                if(_user == null)
+                {
+                    _user = new UserRepository(_dbContext);
+                }
+                return _user;
             }
         }
         public void Save()
