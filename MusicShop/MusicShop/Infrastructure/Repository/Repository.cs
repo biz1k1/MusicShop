@@ -10,28 +10,34 @@ namespace MusicShop.Infrastructure.Repository
         {
             _dbContext = dbContext;
         }
-
-        public async Task <T> GetAll()
-        {
-            //return _dbContext.Set<T>().AsNoTracking();
+        public async Task<T> GetById(int id) {
+            return await _dbContext.Set<T>().FindAsync(id);
         }
 
-        public async Task<T> FindByCondition(Expression<Func<T, bool>> expression)
+        public async Task <IEnumerable<T>> GetAll()
         {
-            //return _dbContext.Set<T>().Where(expression).AsNoTracking();
+            return await _dbContext.Set<T>().ToListAsync();
         }
 
-        public void Create(T entity)
+        public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression)
         {
-            _dbContext.Set<T>().Add(entity);
+            return _dbContext.Set<T>().Where(expression).AsNoTracking();
+        }
+        public T FindByCondition(T entity) {
+            return _dbContext.Set<T>().FirstOrDefault(entity);
         }
 
-        public void Update(T entity)
+        public  void Add(T entity)
         {
-            _dbContext.Set<T>().Update(entity);
+           _dbContext.Set<T>().Add(entity);
         }
 
-        public void Delete(T entity)
+        public async void Update(T entity)
+        {
+           _dbContext.Set<T>().Update(entity);
+        }
+
+        public void Remove(T entity)
         {
             _dbContext.Set<T>().Remove(entity);
         }

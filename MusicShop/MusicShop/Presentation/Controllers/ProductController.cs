@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Azure.Core;
+using MusicShop.Infrastructure.Repository;
 using FluentValidation;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
@@ -19,12 +19,12 @@ namespace MusicShop.Presentation.Controllers
     [Route("api/[controller]")]
     public class ProductController : ControllerBase
     {
-        private readonly DataContext db;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper mapper;
         private readonly IValidator<ProductRequest> _validator;
-        public ProductController(DataContext context, IMapper _mapper, IValidator<ProductRequest> validator)
+        public ProductController(IUnitOfWork unitOfWork, IMapper _mapper, IValidator<ProductRequest> validator)
         {
-            db = context;
+            _unitOfWork=unitOfWork;
             mapper = _mapper;
             _validator = validator;
         }
@@ -32,7 +32,7 @@ namespace MusicShop.Presentation.Controllers
         [Route(template: "GetAllByCategory")]
         public async Task<ActionResult> GetProductByCategory(int id)
         {
-            var category = await db.Categories.Where(x => x.Id == id).Include(x => x.Product).ToListAsync();
+            var category = await _unitOfWork.Category.FindByCondition(x => x.Id == id).Include(x => x.Product).ToListAsync();
             var productResponse = mapper.Map<List<Category>, List<CategoryResponseByProduct>>(category);
             return Ok(productResponse);
         }
@@ -40,14 +40,14 @@ namespace MusicShop.Presentation.Controllers
         [Route(template: "GetAll")]
         public async Task<ActionResult> GetAllProduct()
         {
-            var products = await db.Products.Include(x => x.Category).ToListAsync();
-            var productsResponse = mapper.Map<List<Product>, List<ProductResponse>>(products);
+            var products = await _unitOfWork.Product.GetAll();
+            var productsResponse = mapper.Map<List<Product>, List<ProductResponse>>((List<Product>)products);
             return Ok(productsResponse);
         }
         [HttpGet("{id}")]
         public async Task<ActionResult> GetProductById(int id)
         {
-            var product = await db.Products.Where(x => x.Id == id).Include(x => x.Category).ToListAsync();
+            var product = await _unitOfWork.Product.FindByCondition(x => x.Id == id).Include(x => x.Category).ToListAsync();
             if (product == null)
             {
                 return NotFound();
@@ -65,15 +65,15 @@ namespace MusicShop.Presentation.Controllers
             {
                 return ValidationProblem(BehaviorExtensions.AddToModelState(validationResult));
             }
-            var category = await db.Categories.Where(x => x.Id == product.CategoryId).FirstOrDefaultAsync();
+            var category = await _unitOfWork.Category.FindByCondition(x => x.Id == product.CategoryId).FirstOrDefaultAsync();
             var responseProduct = mapper.Map<Product>(product);
             if (category == null)
             {
                 return NotFound("Not found category");
             }
             responseProduct.Category = category;
-            await db.Products.AddAsync(responseProduct);
-            await db.SaveChangesAsync();
+            _unitOfWork.Product.Add(responseProduct);
+            await _unitOfWork.SaveAsync();
             return Ok();
         }
 
@@ -81,13 +81,13 @@ namespace MusicShop.Presentation.Controllers
         [Route(template: "Delete")]
         public async Task<ActionResult> Delete(int id)
         {
-            var product = await db.Products.Where(x => x.Id == id).FirstOrDefaultAsync();
+            var product = await _unitOfWork.Product.FindByCondition(x => x.Id == id).FirstOrDefaultAsync();
             if (product == null)
             {
                 return NotFound();
             }
-            db.Products.Remove(product);
-            await db.SaveChangesAsync();
+            _unitOfWork.Product.Remove(product);
+            await _unitOfWork.SaveAsync();
             return Ok();
         }
 
@@ -99,18 +99,19 @@ namespace MusicShop.Presentation.Controllers
             {
                 return BadRequest("Empty field");
             }
-            if (!db.Products.Any(x => x.Id == product.Id))
+            if (_unitOfWork.Product.FindByCondition(x => x.Id == product.Id)==null)
             {
                 return NotFound();
             }
-            var findProduct = await db.Products.Where(x => x.Id == product.Id).FirstOrDefaultAsync();
-            var findCategory = await db.Categories.Where(x => x.Id == product.CategoryId).FirstOrDefaultAsync();
+            var findProduct = await _unitOfWork.Product.FindByCondition(x => x.Id == product.Id).FirstOrDefaultAsync();
+            var findCategory = await _unitOfWork.Category.FindByCondition(x => x.Id == product.CategoryId).FirstOrDefaultAsync();
             findProduct.Name = product.Name;
             findProduct.Description = product.Description;
             findProduct.InStock = product.InStock;
             findProduct.Price = product.Price;
             findProduct.Category = findCategory;
-            await db.SaveChangesAsync();
+            _unitOfWork.Product.Update(findProduct);
+            await _unitOfWork.SaveAsync();
             return Ok();
         }
     }

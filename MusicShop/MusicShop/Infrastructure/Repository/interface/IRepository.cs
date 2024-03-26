@@ -4,11 +4,13 @@ namespace MusicShop.Infrastructure.Repository
 {
     public interface IRepository<T>
     {
-        Task<T> GetAll();
-        Task<T> FindByCondition(Expression<Func<T, bool>> expression);
-        void Create(T entity);
+        Task<IEnumerable<T>> GetAll();
+        Task<T> GetById(int id);
+        IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression);
+
+        void Add(T entity);
         void Update(T entity);
-        void Delete(T entity);
+        void Remove(T entity);
 
     }
 }

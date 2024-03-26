@@ -42,7 +42,6 @@ namespace MusicShop.Presentation.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult> GetCategoryById(int id)
         {
-            // var category = _db.Categories.Where(x => x.Id == id).Include(x => x.ChildCategories).ThenInclude(x => x.ChildCategories).ToList();
             var category = _unitOfWork.Category.FindByCondition(x => x.Id == id).Include(x => x.ChildCategories).ThenInclude(x => x.ChildCategories).ToList();
             if (category == null)
             {
@@ -52,26 +51,24 @@ namespace MusicShop.Presentation.Controllers
             return Ok(categoryResponse);
         }
 
-        //[Route(template: "Add")]
-        //[Authorize(Policy = IdentityData.Admin)]
-        //[HttpPost]
-        //public async Task<ActionResult> AddCategory(CategoryRequest category)
-        //{
-        //    ValidationResult validationResult = await _validator.ValidateAsync(category);
-        //    if (!validationResult.IsValid)
-        //    {
-        //        return ValidationProblem(BehaviorExtensions.AddToModelState(validationResult));
-        //    }
-        //    var responseCategory = _mapper.Map<Category>(category);
-        //    var subCategory = await _unitOfWork.Category.FindByCondition(category.SubCategoryId);
-        //    if (subCategory != null)
-        //    {
-        //        subCategory.ChildCategories.Add(responseCategory);
-        //    }
-        //    await _db.Categories.AddAsync(responseCategory);
-        //    await _db.SaveChangesAsync();
-        //    return Ok();
-        //}
+        [Route(template: "Add")]
+        [Authorize(Policy = IdentityData.Admin)]
+        [HttpPost]
+        public async Task<ActionResult> AddCategory(CategoryRequest category) {
+            ValidationResult validationResult = await _validator.ValidateAsync(category);
+            if (!validationResult.IsValid) {
+                return ValidationProblem(BehaviorExtensions.AddToModelState(validationResult));
+            }
+
+            var responseCategory = _mapper.Map<Category>(category);
+            var subCategory = await _unitOfWork.Category.GetById(category.SubCategoryId);
+            if (subCategory != null) {
+                subCategory.ChildCategories.Add(responseCategory);
+            }
+            _unitOfWork.Category.Add(responseCategory);
+            await _unitOfWork.SaveAsync();
+            return Ok();
+        }
 
         [Route(template: "Delete")]
         [Authorize(Policy = IdentityData.Admin)]
@@ -83,8 +80,8 @@ namespace MusicShop.Presentation.Controllers
             {
                 return NotFound();
             }
-            _db.Categories.Remove(category);
-            await _db.SaveChangesAsync();
+            _unitOfWork.Category.Remove((Category)category);
+            await _unitOfWork.SaveAsync();
             return Ok();
         }
 
@@ -93,7 +90,7 @@ namespace MusicShop.Presentation.Controllers
         [HttpPatch]
         public async Task<ActionResult> Update(CategoryResponseUpdate category)
         {
-            var foundCategory = await _db.Categories.FindAsync(category.Id);
+            var foundCategory = await _unitOfWork.Category.GetById(category.Id);
             if (foundCategory == null)
             {
                 return BadRequest("Category not found");
@@ -101,7 +98,7 @@ namespace MusicShop.Presentation.Controllers
 
             foundCategory.Name = category.Name;
             foundCategory.ParentCategoryId = category.ParentCategoryId;
-            await _db.SaveChangesAsync();
+            await _unitOfWork.SaveAsync();
             return Ok();
         }
 

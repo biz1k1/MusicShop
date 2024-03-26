@@ -45,9 +45,9 @@ namespace MusicShop.Infrastructure.Repository
                 return _user;
             }
         }
-        public void Save()
+        public async Task SaveAsync()
         {
-            _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
         }
 
     }
