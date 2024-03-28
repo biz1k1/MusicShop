@@ -1,38 +1,53 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MusicShop.Infrastructure.Repository;
 using MusicShop.Domain.Model;
+using Microsoft.AspNetCore.Authorization;
+using MusicShop.Application.Services.Authentication.Identity;
 namespace MusicShop.Presentation.Controllers
 {
     [ApiController]
+    [Authorize(Policy =IdentityData.Admin)]
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
-        UserController(IUnitOfWork unitOfWork) {
+        public UserController(IUnitOfWork unitOfWork)
+        {
             _unitOfWork = unitOfWork;
         }
-        public async Task <IActionResult> GetAllUsers()
+        [HttpGet]
+        [Route(template: "GetAllUsers")]
+        public async Task<IActionResult> GetAllUsers()
         {
-            var allUsers = _unitOfWork.User.GetAll();
+            var allUsers = await _unitOfWork.User.GetAll();
             return Ok(allUsers);
         }
-        public async Task <IActionResult> GetUserById(int id)
+        [HttpGet]
+        [Route(template: "GetUserById")]
+        public async Task<IActionResult> GetUserById(int id)
         {
-            var userById = _unitOfWork.User.GetById(id);
+            var userById = await _unitOfWork.User.GetById(id);
             return Ok(userById);
         }
-        public async Task<IActionResult> AddUser(User user) {
+        [Route(template: "AddUser")]
+        [HttpPost]
+        public async Task<IActionResult> AddUser(User user)
+        {
             _unitOfWork.User.Add(user);
             await _unitOfWork.SaveAsync();
             return Ok();
         }
-        public async Task <IActionResult> RemoveUser(User user)
+        [HttpDelete]
+        [Route(template: "RemoveUser")]
+        public async Task<IActionResult> RemoveUser(User user)
         {
             _unitOfWork.User.Remove(user);
             await _unitOfWork.SaveAsync();
             return Ok();
         }
-        public async Task <IActionResult> UpdateUser(User user)
+        [HttpPatch]
+        [Route(template: "UpdateUser")]
+        public async Task<IActionResult> UpdateUser(User user)
         {
             _unitOfWork.User.Update(user);
             await _unitOfWork.SaveAsync();
