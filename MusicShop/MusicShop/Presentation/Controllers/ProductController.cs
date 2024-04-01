@@ -40,7 +40,7 @@ namespace MusicShop.Presentation.Controllers
         [Route(template: "GetAll")]
         public async Task<ActionResult> GetAllProduct()
         {
-            var products = await _unitOfWork.Product.GetAll();
+            var products = _unitOfWork.Product.GetAll();
             var productsResponse = mapper.Map<List<Product>, List<ProductResponse>>((List<Product>)products);
             return Ok(productsResponse);
         }

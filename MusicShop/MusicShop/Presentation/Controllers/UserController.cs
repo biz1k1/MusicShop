@@ -3,6 +3,7 @@ using MusicShop.Infrastructure.Repository;
 using MusicShop.Domain.Model;
 using Microsoft.AspNetCore.Authorization;
 using MusicShop.Application.Services.Authentication.Identity;
+using Microsoft.EntityFrameworkCore;
 namespace MusicShop.Presentation.Controllers
 {
     [ApiController]
@@ -19,14 +20,14 @@ namespace MusicShop.Presentation.Controllers
         [Route(template: "GetAllUsers")]
         public async Task<IActionResult> GetAllUsers()
         {
-            var allUsers = await _unitOfWork.User.GetAll();
+            var allUsers =  _unitOfWork.User.GetAll();
             return Ok(allUsers);
         }
         [HttpGet]
         [Route(template: "GetUserById")]
         public async Task<IActionResult> GetUserById(int id)
         {
-            var userById = await _unitOfWork.User.GetById(id);
+            var userById = await _unitOfWork.User.FindByCondition(x=>x.Id==id).FirstOrDefaultAsync();
             return Ok(userById);
         }
         [Route(template: "AddUser")]

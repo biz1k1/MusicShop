@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace MusicShop.Infrastructure.Repository
@@ -10,21 +11,18 @@ namespace MusicShop.Infrastructure.Repository
         {
             _dbContext = dbContext;
         }
-        public async Task<T> GetById(int id) {
-            return await _dbContext.Set<T>().FindAsync(id);
-        }
+        //public IQueryable<T> GetById(int id) {
+        //    return _dbContext.Set<T>().Find(id);
+        //}
 
-        public async Task <IEnumerable<T>> GetAll()
+        public IQueryable<T> GetAll()
         {
-            return await _dbContext.Set<T>().ToListAsync();
+            return  _dbContext.Set<T>().AsNoTracking();
         }
 
         public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression)
         {
             return _dbContext.Set<T>().Where(expression).AsNoTracking();
-        }
-        public T FindByCondition(T entity) {
-            return _dbContext.Set<T>().FirstOrDefault(entity);
         }
 
         public  void Add(T entity)

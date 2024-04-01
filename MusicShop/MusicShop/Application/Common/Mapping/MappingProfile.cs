@@ -13,7 +13,8 @@ namespace MusicShop.Application.Common.Mapping
         public MappingProfile()
         {
             // Category
-            CreateMap<Category, CategoryResponse>();
+            //CreateMap<Category, CategoryResponse>();
+
             CreateMap<CategoryResponse, Category>();
             CreateMap<CategoryRequest, Category>();
 

@@ -33,16 +33,16 @@ namespace MusicShop.Presentation.Controllers
 
         [Route(template: "GetAll")]
         [HttpGet]
-        public virtual async Task<ActionResult> GetCategories()
+        public async Task<ActionResult> GetCategories()
         {
-            var FullTreeCategories = _services.GetFullTreeCategories();
-            var categoriesResponse = _mapper.Map<List<Category>, List<CategoryResponse>>((List<Category>)FullTreeCategories);
+            var FullTreeCategories = _services.GetFullTreeCategories().ToList();
+            var categoriesResponse = _mapper.Map<List<Category>, List<CategoryResponse>>(FullTreeCategories);
             return Ok(categoriesResponse);
         }
         [HttpGet("{id}")]
         public async Task<ActionResult> GetCategoryById(int id)
         {
-            var category = _unitOfWork.Category.FindByCondition(x => x.Id == id).Include(x => x.ChildCategories).ThenInclude(x => x.ChildCategories).ToList();
+            var category = await _unitOfWork.Category.FindByCondition(x=>x.Id==id).Include(x => x.ChildCategories).ThenInclude(x => x.ChildCategories).ToListAsync();
             if (category == null)
             {
                 return BadRequest("Category not found");
@@ -61,7 +61,7 @@ namespace MusicShop.Presentation.Controllers
             }
 
             var responseCategory = _mapper.Map<Category>(category);
-            var subCategory = await _unitOfWork.Category.GetById(category.SubCategoryId);
+            var subCategory = _unitOfWork.Category.GetCategoryByIdAsync(category.SubCategoryId).;
             if (subCategory != null) {
                 subCategory.ChildCategories.Add(responseCategory);
             }
@@ -75,7 +75,7 @@ namespace MusicShop.Presentation.Controllers
         [HttpDelete]
         public async Task<ActionResult> Delete(int id)
         {
-            var category =  _unitOfWork.Category.FindByCondition(x => x.Id == id);
+            var category =  await _unitOfWork.Category.FindByCondition(x => x.Id == id).FirstOrDefaultAsync();
             if (category == null)
             {
                 return NotFound();
@@ -90,14 +90,15 @@ namespace MusicShop.Presentation.Controllers
         [HttpPatch]
         public async Task<ActionResult> Update(CategoryResponseUpdate category)
         {
-            var foundCategory = await _unitOfWork.Category.GetById(category.Id);
+            var foundCategory = await _unitOfWork.Category.FindByCondition(x=>x.Id==category.Id).FirstOrDefaultAsync();
             if (foundCategory == null)
             {
                 return BadRequest("Category not found");
             }
-
-            foundCategory.Name = category.Name;
-            foundCategory.ParentCategoryId = category.ParentCategoryId;
+            var responseCategory = _mapper.Map<Category>(category);
+            _unitOfWork.Category.Update(responseCategory);
+            //foundCategory.Name = category.Name;
+            //foundCategory.ParentCategoryId = category.ParentCategoryId;
             await _unitOfWork.SaveAsync();
             return Ok();
         }
