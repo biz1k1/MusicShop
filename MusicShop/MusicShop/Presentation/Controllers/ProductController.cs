@@ -50,7 +50,8 @@ namespace MusicShop.Presentation.Controllers
             var product = await _unitOfWork.Product.FindByCondition(x => x.Id == id).Include(x => x.Category).ToListAsync();
             if (product == null)
             {
-                return NotFound();
+                ModelState.AddModelError("return", "Product not found");
+                return ValidationProblem(ModelState);
             }
             var productResponse = mapper.Map<List<Product>, List<ProductResponse>>(product);
             return Ok(productResponse);
@@ -69,7 +70,8 @@ namespace MusicShop.Presentation.Controllers
             var responseProduct = mapper.Map<Product>(product);
             if (category == null)
             {
-                return NotFound("Not found category");
+                ModelState.AddModelError("return", "Product not found");
+                return ValidationProblem(ModelState);
             }
             responseProduct.Category = category;
             _unitOfWork.Product.Add(responseProduct);
@@ -84,7 +86,8 @@ namespace MusicShop.Presentation.Controllers
             var product = await _unitOfWork.Product.FindByCondition(x => x.Id == id).FirstOrDefaultAsync();
             if (product == null)
             {
-                return NotFound();
+                ModelState.AddModelError("return", "Product not found");
+                return ValidationProblem(ModelState);
             }
             _unitOfWork.Product.Remove(product);
             await _unitOfWork.SaveAsync();
@@ -95,9 +98,10 @@ namespace MusicShop.Presentation.Controllers
         [Route(template: "Update")]
         public async Task<ActionResult> Update(ProductRequestUpdate product)
         {
-            if (product == null)
+            ValidationResult validationResult = await _validator.ValidateAsync(product);
+            if (!validationResult.IsValid)
             {
-                return BadRequest("Empty field");
+                return ValidationProblem(BehaviorExtensions.AddToModelState(validationResult));
             }
             if (_unitOfWork.Product.FindByCondition(x => x.Id == product.Id)==null)
             {

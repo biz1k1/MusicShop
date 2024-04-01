@@ -13,7 +13,7 @@ namespace MusicShop.Application.Common.Mapping
         public MappingProfile()
         {
             // Category
-            //CreateMap<Category, CategoryResponse>();
+            CreateMap<Category, CategoryResponse>();
 
             CreateMap<CategoryResponse, Category>();
             CreateMap<CategoryRequest, Category>();
@@ -24,6 +24,8 @@ namespace MusicShop.Application.Common.Mapping
                 .ForMember(dest => dest.products, src => src.MapFrom(x => x.Product));
 
             CreateMap<Category, CategoryResponseUpdate>();
+
+            CreateMap<CategoryResponseUpdate, Category>();
 
             // Product
             CreateMap<Product, ProductRequest>();

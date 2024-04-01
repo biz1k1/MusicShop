@@ -2,6 +2,7 @@
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using MusicShop.Presentation.Common.FilterError;
 
 namespace MusicShop.Application.Common.Behavior
 {

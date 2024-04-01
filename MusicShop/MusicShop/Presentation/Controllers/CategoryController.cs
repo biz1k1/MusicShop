@@ -13,7 +13,7 @@ using MusicShop.Application.Common.Behavior;
 namespace MusicShop.Presentation.Controllers
 {
     [ApiController]
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     public class CategoryController : ControllerBase
     {
@@ -21,7 +21,8 @@ namespace MusicShop.Presentation.Controllers
         private readonly IMapper _mapper;
         private readonly ICategoryServicesHandler _services;
         private readonly IValidator<CategoryRequest> _validator;
-        public CategoryController(IUnitOfWork repository, IMapper mapper, ICategoryServicesHandler services, IValidator<CategoryRequest> validator)
+        public CategoryController(IUnitOfWork repository, IMapper mapper, ICategoryServicesHandler services,
+            IValidator<CategoryRequest> validator)
         {
             _unitOfWork = repository;
             _mapper = mapper;
@@ -43,25 +44,25 @@ namespace MusicShop.Presentation.Controllers
         public async Task<ActionResult> GetCategoryById(int id)
         {
             var category = await _unitOfWork.Category.FindByCondition(x=>x.Id==id).Include(x => x.ChildCategories).ThenInclude(x => x.ChildCategories).ToListAsync();
-            if (category == null)
+            if (category.Count==0)
             {
-                return BadRequest("Category not found");
+                ModelState.AddModelError("return", "Category not found");
+                return ValidationProblem(ModelState);
             }
             var categoryResponse = _mapper.Map<List<Category>, List<CategoryResponse>>(category);
+
             return Ok(categoryResponse);
         }
 
         [Route(template: "Add")]
-        [Authorize(Policy = IdentityData.Admin)]
         [HttpPost]
         public async Task<ActionResult> AddCategory(CategoryRequest category) {
             ValidationResult validationResult = await _validator.ValidateAsync(category);
             if (!validationResult.IsValid) {
                 return ValidationProblem(BehaviorExtensions.AddToModelState(validationResult));
             }
-
             var responseCategory = _mapper.Map<Category>(category);
-            var subCategory = _unitOfWork.Category.GetCategoryByIdAsync(category.SubCategoryId).;
+            var subCategory = await _unitOfWork.Category.GetCategoryByIdAsync(category.SubCategoryId);
             if (subCategory != null) {
                 subCategory.ChildCategories.Add(responseCategory);
             }
@@ -71,34 +72,27 @@ namespace MusicShop.Presentation.Controllers
         }
 
         [Route(template: "Delete")]
-        [Authorize(Policy = IdentityData.Admin)]
         [HttpDelete]
         public async Task<ActionResult> Delete(int id)
         {
             var category =  await _unitOfWork.Category.FindByCondition(x => x.Id == id).FirstOrDefaultAsync();
             if (category == null)
             {
-                return NotFound();
+                ModelState.AddModelError("return", "Category not found");
+                return ValidationProblem(ModelState);
             }
-            _unitOfWork.Category.Remove((Category)category);
+            _unitOfWork.Category.Remove(category);
             await _unitOfWork.SaveAsync();
             return Ok();
         }
 
         [Route(template: "Update")]
-        [Authorize(Policy = IdentityData.Admin)]
         [HttpPatch]
         public async Task<ActionResult> Update(CategoryResponseUpdate category)
         {
-            var foundCategory = await _unitOfWork.Category.FindByCondition(x=>x.Id==category.Id).FirstOrDefaultAsync();
-            if (foundCategory == null)
-            {
-                return BadRequest("Category not found");
-            }
-            var responseCategory = _mapper.Map<Category>(category);
-            _unitOfWork.Category.Update(responseCategory);
-            //foundCategory.Name = category.Name;
-            //foundCategory.ParentCategoryId = category.ParentCategoryId;
+
+            var categoryResponse = _mapper.Map<Category>(category);
+            _unitOfWork.Category.Update(categoryResponse);
             await _unitOfWork.SaveAsync();
             return Ok();
         }

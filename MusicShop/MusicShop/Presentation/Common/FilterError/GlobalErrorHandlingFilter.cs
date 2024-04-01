@@ -48,7 +48,7 @@ namespace MusicShop.Presentation.Common.FilterError
 
             else
             {
-                problemDetails.Title = exception.Message;
+                problemDetails.Title = exception.InnerException.Message;
             }
             _logger.Error($"Catch exception:{problemDetails.Title}|| trace:{trace.GetFrame(0).GetFileLineNumber()}");
             context.Result = new ObjectResult(problemDetails);

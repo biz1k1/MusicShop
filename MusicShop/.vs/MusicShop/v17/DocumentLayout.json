@@ -3,48 +3,55 @@
   "WorkspaceRootPath": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\presentation\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\presentation\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\infrastructure\\repository\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\infrastructure\\repository\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\infrastructure\\repository\\interface\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\infrastructure\\repository\\interface\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\infrastructure\\repository\\interface\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\infrastructure\\repository\\interface\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\infrastructure\\repository\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\infrastructure\\repository\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\infrastructure\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\infrastructure\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\infrastructure\\repository\\interface\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\infrastructure\\repository\\interface\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\infrastructure\\repository\\interface\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\infrastructure\\repository\\interface\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DE6B26B4-5D73-4EFA-9785-05F3DE733312}|Test\\Test.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\test\\categorycontrollertest\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DE6B26B4-5D73-4EFA-9785-05F3DE733312}|Test\\Test.csproj|solutionrelative:test\\categorycontrollertest\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\presentation\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\presentation\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\presentation\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\presentation\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\presentation\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\presentation\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/DESKTOP_MOEGCNI/newDb/True/SqlTable/dbo.Categories.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\infrastructure\\data\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\infrastructure\\data\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\domain\\model\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\domain\\model\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\domain\\model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\domain\\model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Migrations\\20240401202747_Create1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:MusicShop\\Migrations\\20240401202747_Create1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\infrastructure\\repository\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\infrastructure\\repository\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\application\\common\\mapping\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\application\\common\\mapping\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\infrastructure\\repository\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\infrastructure\\repository\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\presentation\\common\\filtererror\\globalerrorhandlingfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\presentation\\common\\filtererror\\globalerrorhandlingfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\domain\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\domain\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,7 +61,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,136 +69,157 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Infrastructure\\Repository\\interface\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "MusicShop\\Infrastructure\\Repository\\interface\\IUserRepository.cs",
-              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Infrastructure\\Repository\\interface\\IUserRepository.cs",
-              "RelativeToolTip": "MusicShop\\Infrastructure\\Repository\\interface\\IUserRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T18:18:25.878Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IProductRepository.cs",
-              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Infrastructure\\Repository\\interface\\IProductRepository.cs",
-              "RelativeDocumentMoniker": "MusicShop\\Infrastructure\\Repository\\interface\\IProductRepository.cs",
-              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Infrastructure\\Repository\\interface\\IProductRepository.cs",
-              "RelativeToolTip": "MusicShop\\Infrastructure\\Repository\\interface\\IProductRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T18:18:13.862Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ICategoryRepository.cs",
-              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Infrastructure\\Repository\\interface\\ICategoryRepository.cs",
-              "RelativeDocumentMoniker": "MusicShop\\Infrastructure\\Repository\\interface\\ICategoryRepository.cs",
-              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Infrastructure\\Repository\\interface\\ICategoryRepository.cs",
-              "RelativeToolTip": "MusicShop\\Infrastructure\\Repository\\interface\\ICategoryRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T18:17:31.955Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CategoryRepository.cs",
-              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Infrastructure\\Repository\\CategoryRepository.cs",
-              "RelativeDocumentMoniker": "MusicShop\\Infrastructure\\Repository\\CategoryRepository.cs",
-              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Infrastructure\\Repository\\CategoryRepository.cs",
-              "RelativeToolTip": "MusicShop\\Infrastructure\\Repository\\CategoryRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T17:01:36.633Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Infrastructure\\Repository\\UserRepository.cs",
-              "RelativeDocumentMoniker": "MusicShop\\Infrastructure\\Repository\\UserRepository.cs",
-              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Infrastructure\\Repository\\UserRepository.cs",
-              "RelativeToolTip": "MusicShop\\Infrastructure\\Repository\\UserRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAABDAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T18:11:20.595Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 0,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Presentation\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "MusicShop\\Presentation\\Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Presentation\\Controllers\\UserController.cs",
               "RelativeToolTip": "MusicShop\\Presentation\\Controllers\\UserController.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAQwBYAAAA2AAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAB0AAABlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-30T17:59:44.185Z"
+              "WhenOpened": "2024-04-01T20:35:47.093Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 1,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Presentation\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "MusicShop\\Presentation\\Controllers\\ProductController.cs",
               "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Presentation\\Controllers\\ProductController.cs",
               "RelativeToolTip": "MusicShop\\Presentation\\Controllers\\ProductController.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAAG8AAAAwAAAA",
+              "ViewState": "AQIAAEoAAAAAAAAAAAAqwGMAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-30T17:59:41.021Z"
+              "WhenOpened": "2024-04-01T20:32:15.784Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "UnitTest1.cs",
-              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\Test\\CategoryControllerTest\\UnitTest1.cs",
-              "RelativeDocumentMoniker": "Test\\CategoryControllerTest\\UnitTest1.cs",
-              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\Test\\CategoryControllerTest\\UnitTest1.cs",
-              "RelativeToolTip": "Test\\CategoryControllerTest\\UnitTest1.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAhwCAAAAAOAAAA",
+              "DocumentIndex": 6,
+              "Title": "20240401202747_Create1.cs",
+              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Migrations\\20240401202747_Create1.cs",
+              "RelativeDocumentMoniker": "MusicShop\\Migrations\\20240401202747_Create1.cs",
+              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Migrations\\20240401202747_Create1.cs",
+              "RelativeToolTip": "MusicShop\\Migrations\\20240401202747_Create1.cs",
+              "ViewState": "AQIAACgAAAAAAAAAAAAgwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T16:53:33.647Z"
+              "WhenOpened": "2024-04-01T20:27:47.42Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Domain\\Model\\User.cs",
+              "RelativeDocumentMoniker": "MusicShop\\Domain\\Model\\User.cs",
+              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Domain\\Model\\User.cs",
+              "RelativeToolTip": "MusicShop\\Domain\\Model\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-01T20:18:39.527Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Domain\\Model\\Product.cs",
+              "RelativeDocumentMoniker": "MusicShop\\Domain\\Model\\Product.cs",
+              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Domain\\Model\\Product.cs",
+              "RelativeToolTip": "MusicShop\\Domain\\Model\\Product.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-01T20:18:38.389Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Domain\\Model\\Category.cs",
+              "RelativeDocumentMoniker": "MusicShop\\Domain\\Model\\Category.cs",
+              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Domain\\Model\\Category.cs",
+              "RelativeToolTip": "MusicShop\\Domain\\Model\\Category.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-01T20:18:02.752Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Configuration.cs",
+              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Infrastructure\\Data\\Configuration.cs",
+              "RelativeDocumentMoniker": "MusicShop\\Infrastructure\\Data\\Configuration.cs",
+              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Infrastructure\\Data\\Configuration.cs",
+              "RelativeToolTip": "MusicShop\\Infrastructure\\Data\\Configuration.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-01T20:14:09.709Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "dbo.Categories [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/DESKTOP_MOEGCNI/newDb/True/SqlTable/dbo.Categories.sql",
+              "ToolTip": "dbo.Categories [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-04-01T20:07:31.721Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "GlobalErrorHandlingFilter.cs",
+              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Presentation\\Common\\FilterError\\GlobalErrorHandlingFilter.cs",
+              "RelativeDocumentMoniker": "MusicShop\\Presentation\\Common\\FilterError\\GlobalErrorHandlingFilter.cs",
+              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Presentation\\Common\\FilterError\\GlobalErrorHandlingFilter.cs",
+              "RelativeToolTip": "MusicShop\\Presentation\\Common\\FilterError\\GlobalErrorHandlingFilter.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwDIAAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-01T20:06:03.296Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Application\\Common\\Mapping\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "MusicShop\\Application\\Common\\Mapping\\MappingProfile.cs",
+              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Application\\Common\\Mapping\\MappingProfile.cs",
+              "RelativeToolTip": "MusicShop\\Application\\Common\\Mapping\\MappingProfile.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-01T19:52:40.719Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CategoryRepository.cs",
+              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Infrastructure\\Repository\\CategoryRepository.cs",
+              "RelativeDocumentMoniker": "MusicShop\\Infrastructure\\Repository\\CategoryRepository.cs",
+              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Infrastructure\\Repository\\CategoryRepository.cs",
+              "RelativeToolTip": "MusicShop\\Infrastructure\\Repository\\CategoryRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-01T19:14:35.874Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Application\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "MusicShop\\Application\\DependencyInjection.cs",
+              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Application\\DependencyInjection.cs",
+              "RelativeToolTip": "MusicShop\\Application\\DependencyInjection.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAACEAAABUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-01T19:08:13.96Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Repository.cs",
               "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Infrastructure\\Repository\\Repository.cs",
               "RelativeDocumentMoniker": "MusicShop\\Infrastructure\\Repository\\Repository.cs",
               "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Infrastructure\\Repository\\Repository.cs",
               "RelativeToolTip": "MusicShop\\Infrastructure\\Repository\\Repository.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAAAA4AAAAyAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-29T16:37:58.828Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IRepository.cs",
-              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Infrastructure\\Repository\\interface\\IRepository.cs",
-              "RelativeDocumentMoniker": "MusicShop\\Infrastructure\\Repository\\interface\\IRepository.cs",
-              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Infrastructure\\Repository\\interface\\IRepository.cs",
-              "RelativeToolTip": "MusicShop\\Infrastructure\\Repository\\interface\\IRepository.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAYAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-29T16:37:57.471Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CategoryController.cs",
-              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Presentation\\Controllers\\CategoryController.cs",
-              "RelativeDocumentMoniker": "MusicShop\\Presentation\\Controllers\\CategoryController.cs",
-              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Presentation\\Controllers\\CategoryController.cs",
-              "RelativeToolTip": "MusicShop\\Presentation\\Controllers\\CategoryController.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABgAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T16:49:37.228Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-01T18:02:29.351Z"
             }
           ]
         }

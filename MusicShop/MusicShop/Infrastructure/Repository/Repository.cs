@@ -11,9 +11,6 @@ namespace MusicShop.Infrastructure.Repository
         {
             _dbContext = dbContext;
         }
-        //public IQueryable<T> GetById(int id) {
-        //    return _dbContext.Set<T>().Find(id);
-        //}
 
         public IQueryable<T> GetAll()
         {
@@ -30,7 +27,7 @@ namespace MusicShop.Infrastructure.Repository
            _dbContext.Set<T>().Add(entity);
         }
 
-        public async void Update(T entity)
+        public void Update(T entity)
         {
            _dbContext.Set<T>().Update(entity);
         }

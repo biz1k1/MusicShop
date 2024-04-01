@@ -160,3 +160,5 @@ C:\Users\SystemX\source\repos\MusicShop\MusicShop\Test\obj\Debug\net7.0\refint\T
 C:\Users\SystemX\source\repos\MusicShop\MusicShop\Test\obj\Debug\net7.0\Test.pdb
 C:\Users\SystemX\source\repos\MusicShop\MusicShop\Test\obj\Debug\net7.0\Test.genruntimeconfig.cache
 C:\Users\SystemX\source\repos\MusicShop\MusicShop\Test\obj\Debug\net7.0\ref\Test.dll
+C:\Users\SystemX\source\repos\MusicShop\MusicShop\Test\bin\Debug\net7.0\AutoFixture.dll
+C:\Users\SystemX\source\repos\MusicShop\MusicShop\Test\bin\Debug\net7.0\Fare.dll
