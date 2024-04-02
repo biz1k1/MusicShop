@@ -4,7 +4,7 @@ namespace MusicShop.Infrastructure.Repository
 {
     public interface IUserRepository:IRepository<User>
     {
-        Task<IEnumerable<User>> GetAllCategoryAsync();
-        Task<User> GetCategoryByIdAsync(int id);
+        Task<IEnumerable<User>> GetAllUsersAsync();
+        Task<User> GetUserByIdAsync(int id);
     }
 }

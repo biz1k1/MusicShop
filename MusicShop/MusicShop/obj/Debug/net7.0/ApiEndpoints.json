@@ -166,7 +166,7 @@
   {
     "ContainingType": "MusicShop.Presentation.Controllers.ProductController",
     "Method": "GetProductByCategory",
-    "RelativePath": "api/Product/GetAllByCategory",
+    "RelativePath": "api/Product/GetProductsByCategory",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

@@ -1,14 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MusicShop.Infrastructure.Data;
 
 namespace MusicShop.Infrastructure.Repository
 {
     public class UnitOfWork: IUnitOfWork
     {
-        private readonly DbContext _dbContext;
+        private readonly DataContext _dbContext;
         private ICategoryRepository _category;
         private IProductRepository _product;
         private IUserRepository _user;
-        public UnitOfWork(DbContext dbContext)
+        public UnitOfWork(DataContext dbContext)
         {
             _dbContext = dbContext;
         }

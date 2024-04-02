@@ -2,12 +2,12 @@ using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
-using MusicShop.Application.Services.ServiceHandler;
 using MusicShop.Infrastructure.Repository;
 using MusicShop.Presentation.Common.DTOs.Category;
 using MusicShop.Presentation.Controllers;
 using AutoFixture;
 using MusicShop.Domain.Model;
+using MusicShop.Application.Services.ServiceHandler;
 namespace Test.CategoryControllerTest
 {
 
@@ -29,8 +29,8 @@ namespace Test.CategoryControllerTest
         public async Task GetByIdAsync_ShouldReturnCATEGORY_WhenCategoryExist()
         {
             //Arrange
-            var categoryList = _fixture.CreateMany<Category>().ToList();
-            //_unitOfWork.Setup(x => x.Category.FindByCondition(x => x.Id == 1)).Returns(categoryList);
+            var categoryList = _fixture.CreateMany<Category>(1).ToList();
+            _unitOfWork.Setup(x => x.Category.FindByCondition(x => x.Id == 1)).Returns((IQueryable<Category>)categoryList);
             //Act
             var category = await _categoryController.GetCategoryById(1);
             var okResult =  category as ObjectResult;

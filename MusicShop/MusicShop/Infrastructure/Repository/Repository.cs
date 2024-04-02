@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MusicShop.Infrastructure.Data;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -6,8 +7,8 @@ namespace MusicShop.Infrastructure.Repository
 {
     public abstract class Repository<T> : IRepository<T> where T : class
     {
-        protected readonly DbContext _dbContext;
-        public Repository(DbContext dbContext)
+        protected readonly DataContext _dbContext;
+        public Repository(DataContext dbContext)
         {
             _dbContext = dbContext;
         }

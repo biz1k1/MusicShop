@@ -3,13 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 using MusicShop.Domain.Model;
 using MusicShop.Presentation.Common.DTOs.Category;
-using MusicShop.Application.Services.ServiceHandler;
 using FluentValidation;
-using Microsoft.AspNetCore.Authorization;
 using MusicShop.Infrastructure.Repository;
-using MusicShop.Application.Services.Authentication.Identity;
 using FluentValidation.Results;
 using MusicShop.Application.Common.Behavior;
+using MusicShop.Application.Services.ServiceHandler;
+
 namespace MusicShop.Presentation.Controllers
 {
     [ApiController]
@@ -75,12 +74,13 @@ namespace MusicShop.Presentation.Controllers
         [HttpDelete]
         public async Task<ActionResult> Delete(int id)
         {
-            var category =  await _unitOfWork.Category.FindByCondition(x => x.Id == id).FirstOrDefaultAsync();
+            var category = await _unitOfWork.Category.GetCategoryByIdAsync(id);
             if (category == null)
             {
                 ModelState.AddModelError("return", "Category not found");
                 return ValidationProblem(ModelState);
             }
+
             _unitOfWork.Category.Remove(category);
             await _unitOfWork.SaveAsync();
             return Ok();

@@ -26,7 +26,7 @@ namespace MusicShop.Infrastructure.Data
         public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).ValueGeneratedOnAdd();
+           // builder.Property(x => x.Id).ValueGeneratedOnAdd();
         }
     }
     public class UserConfiguration : IEntityTypeConfiguration<User>

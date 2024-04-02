@@ -4,6 +4,8 @@ using MusicShop.Domain.Model;
 using Microsoft.AspNetCore.Authorization;
 using MusicShop.Application.Services.Authentication.Identity;
 using Microsoft.EntityFrameworkCore;
+using FluentValidation;
+using MusicShop.Presentation.Common.DTOs.Product;
 namespace MusicShop.Presentation.Controllers
 {
     [ApiController]

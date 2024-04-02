@@ -4,7 +4,10 @@ namespace MusicShop.Infrastructure.Repository
 {
     public interface IProductRepository : IRepository<Product>
     {
-        Task<IEnumerable<Product>> GetAllCategoryAsync();
-        Task<Product> GetCategoryByIdAsync(int id);
+        Task<IEnumerable<Product>> GetAllProductsAsync();
+        Task<Product> GetProductByIdAsync(int id);
+        Task<Product> GetProductIncludeCategoryByIdAsync(int id);
+        IEnumerable<Product> GetProductsIncludeCategory();
+        
     }
 }

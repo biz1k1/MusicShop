@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MusicShop.Application.Common.Interfaces.Authentication;
 using MusicShop.Application.Services.FullTreeCategories;
-using MusicShop.Application.Services.ServiceHandler;
 using MusicShop.Infrastructure.Data;
 using MusicShop.Application.Services.Authentication;
 using MusicShop.Application.Services.JwtTokenGenerator;
@@ -10,6 +9,7 @@ using MusicShop.Application.Common.Behavior;
 using MusicShop.Presentation.Common.FilterError;
 using MusicShop.Infrastructure.Repository;
 using MusicShop.Domain.Model;
+using MusicShop.Application.Services.ServiceHandler;
 
 
 namespace MusicShop.Application
@@ -24,6 +24,7 @@ namespace MusicShop.Application
             services.AddSwaggerGen();
             //DI
             services.AddScoped<ICategoryServicesHandler, CategoryServicesHandler>();
+            services.AddScoped<IAuthenticationServiceHandler, AuthenticationServiceHandler>();
             services.AddScoped<IFullTreeCategoryService, FullTreeCategoriesService>();
             services.AddScoped<IAuthService, AuthenticationService>();
             services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();

@@ -1,11 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MusicShop.Domain.Model;
+using MusicShop.Infrastructure.Data;
 
 namespace MusicShop.Infrastructure.Repository
 {
     public class CategoryRepository : Repository<Category>, ICategoryRepository
     {
-        public CategoryRepository(DbContext dbContext) : base(dbContext)
+        public CategoryRepository(DataContext dbContext) : base(dbContext)
         {
         }
         public async Task<IEnumerable<Category>> GetAllCategoryAsync()
