@@ -7,12 +7,9 @@ namespace MusicShop.Application.Common.Behavior
     {
        public RegisterRequestValidator()
         {
-            RuleFor(x => x.FirstName)
+            RuleFor(x => x.Login)
                 .NotEmpty()
                 .Length(1,20);
-            RuleFor(x => x.LastName)
-                .NotEmpty()
-                .Length(1, 20);
             RuleFor(x => x.Email)
                 .NotEmpty()
                 .EmailAddress();

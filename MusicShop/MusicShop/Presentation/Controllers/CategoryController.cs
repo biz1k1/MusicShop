@@ -1,18 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
-using MusicShop.Domain.Model;
 using MusicShop.Presentation.Common.DTOs.Category;
 using FluentValidation;
 using MusicShop.Infrastructure.Repository;
 using FluentValidation.Results;
 using MusicShop.Application.Common.Behavior;
 using MusicShop.Application.Services.ServiceHandler;
+using MusicShop.Domain.Model.Core;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace MusicShop.Presentation.Controllers
 {
     [ApiController]
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     public class CategoryController : ControllerBase
     {
@@ -29,16 +31,16 @@ namespace MusicShop.Presentation.Controllers
             _validator = validator;
 
         }
-
-
+        [Authorize(Policy = "Read")]
         [Route(template: "GetAll")]
         [HttpGet]
         public async Task<ActionResult> GetCategories()
         {
             var FullTreeCategories = _services.GetFullTreeCategories().ToList();
-            var categoriesResponse = _mapper.Map<List<Category>, List<CategoryResponse>>(FullTreeCategories);
+            var categoriesResponse = _mapper.Map<List<CategoryEntity>, List<CategoryResponse>>(FullTreeCategories);
             return Ok(categoriesResponse);
         }
+        [Authorize(Policy = "Read")]
         [HttpGet("{id}")]
         public async Task<ActionResult> GetCategoryById(int id)
         {
@@ -48,19 +50,19 @@ namespace MusicShop.Presentation.Controllers
                 ModelState.AddModelError("return", "Category not found");
                 return ValidationProblem(ModelState);
             }
-            var categoryResponse = _mapper.Map<List<Category>, List<CategoryResponse>>(category);
+            var categoryResponse = _mapper.Map<List<CategoryEntity>, List<CategoryResponse>>(category);
 
             return Ok(categoryResponse);
         }
-
-        [Route(template: "Add")]
+        [Authorize(Policy = "Create")]
+        [Route(template: "Create")]
         [HttpPost]
         public async Task<ActionResult> AddCategory(CategoryRequest category) {
             ValidationResult validationResult = await _validator.ValidateAsync(category);
             if (!validationResult.IsValid) {
                 return ValidationProblem(BehaviorExtensions.AddToModelState(validationResult));
             }
-            var responseCategory = _mapper.Map<Category>(category);
+            var responseCategory = _mapper.Map<CategoryEntity>(category);
             var subCategory = await _unitOfWork.Category.GetCategoryByIdAsync(category.SubCategoryId);
             if (subCategory != null) {
                 subCategory.ChildCategories.Add(responseCategory);
@@ -69,7 +71,7 @@ namespace MusicShop.Presentation.Controllers
             await _unitOfWork.SaveAsync();
             return Ok();
         }
-
+        [Authorize(Policy = "Delete")]
         [Route(template: "Delete")]
         [HttpDelete]
         public async Task<ActionResult> Delete(int id)
@@ -85,13 +87,13 @@ namespace MusicShop.Presentation.Controllers
             await _unitOfWork.SaveAsync();
             return Ok();
         }
-
+        [Authorize(Policy = "Update")]
         [Route(template: "Update")]
         [HttpPatch]
         public async Task<ActionResult> Update(CategoryResponseUpdate category)
         {
 
-            var categoryResponse = _mapper.Map<Category>(category);
+            var categoryResponse = _mapper.Map<CategoryEntity>(category);
             _unitOfWork.Category.Update(categoryResponse);
             await _unitOfWork.SaveAsync();
             return Ok();

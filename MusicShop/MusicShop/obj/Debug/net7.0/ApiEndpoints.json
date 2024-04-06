@@ -205,7 +205,7 @@
     "Parameters": [
       {
         "Name": "user",
-        "Type": "MusicShop.Domain.Model.User",
+        "Type": "MusicShop.Domain.Model.Core.UserEntity",
         "IsRequired": true
       }
     ],
@@ -247,7 +247,7 @@
     "Parameters": [
       {
         "Name": "user",
-        "Type": "MusicShop.Domain.Model.User",
+        "Type": "MusicShop.Domain.Model.Core.UserEntity",
         "IsRequired": true
       }
     ],
@@ -263,7 +263,7 @@
     "Parameters": [
       {
         "Name": "user",
-        "Type": "MusicShop.Domain.Model.User",
+        "Type": "MusicShop.Domain.Model.Core.UserEntity",
         "IsRequired": true
       }
     ],

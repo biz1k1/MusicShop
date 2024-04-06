@@ -1,10 +1,10 @@
-﻿using MusicShop.Domain.Model;
+﻿using MusicShop.Domain.Model.Core;
 
 namespace MusicShop.Application.Services.ServiceHandler
 {
     public interface ICategoryServicesHandler
     {
-        IEnumerable<Category> GetFullTreeCategories();
+        IEnumerable<CategoryEntity> GetFullTreeCategories();
 
     }
 }

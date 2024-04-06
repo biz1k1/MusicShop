@@ -1,15 +1,15 @@
-﻿using MusicShop.Domain.Model;
+﻿using MusicShop.Domain.Model.Core;
 
 namespace MusicShop.Application.Services.FullTreeCategories;
 
 public class FullTreeCategoriesService: IFullTreeCategoryService
 {
-    public IEnumerable<Category> CheckIfTheAreChildrenAndAddThem(int? Id, IEnumerable<Category> allCategories)
+    public IEnumerable<CategoryEntity> CheckIfTheAreChildrenAndAddThem(int? Id, IEnumerable<CategoryEntity> allCategories)
     {
         var children =  allCategories.Where(x => x.ParentCategoryId == Id).ToList();
         foreach (var child in children)
         {
-            child.ChildCategories = (ICollection<Category>)CheckIfTheAreChildrenAndAddThem(child.Id, allCategories);
+            child.ChildCategories = (ICollection<CategoryEntity>)CheckIfTheAreChildrenAndAddThem(child.Id, allCategories);
         }
         return children;
     }

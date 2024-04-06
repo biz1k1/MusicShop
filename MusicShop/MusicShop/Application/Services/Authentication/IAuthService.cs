@@ -4,7 +4,7 @@ namespace MusicShop.Application.Services.Authentication
 {
     public interface IAuthService
     {
-        AuthenticationResult Register(RegisterRequest request);
-        AuthenticationResult Login(LoginRequest loginRequest);
+        Task<AuthenticationResult> Register(RegisterRequest request);
+        Task<AuthenticationResult> Login(LoginRequest loginRequest);
     }
 }

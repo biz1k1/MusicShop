@@ -1,11 +1,10 @@
 ﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using MusicShop.Application.Common.Interfaces.Authentication;
-using MusicShop.Application.Services.Authentication.Identity;
-using MusicShop.Domain.Model;
+using MusicShop.Application.Services.Authorization.PermissionService;
+using MusicShop.Domain.Model.Core;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Security.Cryptography;
 using System.Text;
 namespace MusicShop.Application.Services.JwtTokenGenerator
 {
@@ -15,7 +14,7 @@ namespace MusicShop.Application.Services.JwtTokenGenerator
         public JwtTokenGenerator(IOptions<JwtSettings> jwtOptions) {
             _jwtSettings = jwtOptions.Value;
         }
-        public string GenerateToken(User user)
+        public string GenerateToken(UserEntity user)
         {
 
 
@@ -24,9 +23,7 @@ namespace MusicShop.Application.Services.JwtTokenGenerator
                     SecurityAlgorithms.HmacSha256);
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Name,user.FirstName+" "+user.LastName),
-                new Claim(JwtRegisteredClaimNames.NameId,Guid.NewGuid().ToString()),
-                //new Claim(ClaimsIdentity.Def)
+                new Claim(CustomClaims.UserId,user.Id.ToString()),
 
             };
             var securityToken = new JwtSecurityToken(

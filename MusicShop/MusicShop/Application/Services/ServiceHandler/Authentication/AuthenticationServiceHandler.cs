@@ -10,13 +10,13 @@ namespace MusicShop.Application.Services.ServiceHandler
         {
             _authService = authService;
         }
-        public AuthenticationResult Login(LoginRequest request)
+        public Task<AuthenticationResult> Login(LoginRequest request)
         {
             var result= _authService.Login(request);
             return result;
         }
 
-        public AuthenticationResult Register(RegisterRequest request)
+        public Task<AuthenticationResult> Register(RegisterRequest request)
         {
             var result = _authService.Register(request);
             return result;

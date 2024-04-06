@@ -1,8 +1,8 @@
-﻿using MusicShop.Domain.Model;
+﻿using MusicShop.Domain.Model.Core;
 
 namespace MusicShop.Application.Services.FullTreeCategories;
 
 public interface IFullTreeCategoryService
 {
-    IEnumerable<Category> CheckIfTheAreChildrenAndAddThem(int? Id, IEnumerable<Category> allCategories);
+    IEnumerable<CategoryEntity> CheckIfTheAreChildrenAndAddThem(int? Id, IEnumerable<CategoryEntity> allCategories);
 }

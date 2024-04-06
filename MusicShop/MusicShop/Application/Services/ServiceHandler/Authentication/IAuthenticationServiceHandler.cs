@@ -5,7 +5,7 @@ namespace MusicShop.Application.Services.ServiceHandler
 {
     public interface IAuthenticationServiceHandler
     {
-        AuthenticationResult Register(RegisterRequest request);
-        AuthenticationResult Login(LoginRequest request);
+        Task<AuthenticationResult> Register(RegisterRequest request);
+        Task<AuthenticationResult> Login(LoginRequest request);
     }
 }

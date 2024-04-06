@@ -27,7 +27,7 @@ namespace MusicShop.Presentation.Controllers
             {
                 return ValidationProblem(BehaviorExtensions.AddToModelState(validationResult));
             }
-            _authenticationHandler.Register(request);
+            await _authenticationHandler.Register(request);
             return Ok("Registration was successful");
         }
         [Route("Login")]
@@ -35,7 +35,7 @@ namespace MusicShop.Presentation.Controllers
         public async Task<IActionResult> Login(LoginRequest login)
         {
             var context = HttpContext;
-            var loginResult = _authenticationHandler.Login(login);
+            var loginResult =await _authenticationHandler.Login(login);
             context.Response.Cookies.Append("Not-a-very-tasty-cookie", loginResult.Token);
             return Ok("The login was successful");
         }

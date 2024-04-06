@@ -1,13 +1,13 @@
-﻿using MusicShop.Domain.Model;
+﻿using MusicShop.Domain.Model.Core;
 
 namespace MusicShop.Infrastructure.Repository
 {
-    public interface IProductRepository : IRepository<Product>
+    public interface IProductRepository : IRepository<ProductEntity>
     {
-        Task<IEnumerable<Product>> GetAllProductsAsync();
-        Task<Product> GetProductByIdAsync(int id);
-        Task<Product> GetProductIncludeCategoryByIdAsync(int id);
-        IEnumerable<Product> GetProductsIncludeCategory();
+        Task<IEnumerable<ProductEntity>> GetAllProductsAsync();
+        Task<ProductEntity> GetProductByIdAsync(int id);
+        Task<ProductEntity> GetProductIncludeCategoryByIdAsync(int id);
+        IEnumerable<ProductEntity> GetProductsIncludeCategory();
         
     }
 }

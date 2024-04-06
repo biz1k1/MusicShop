@@ -9,9 +9,21 @@ namespace MusicShop.Infrastructure.Repository
         private ICategoryRepository _category;
         private IProductRepository _product;
         private IUserRepository _user;
+        private IRoleRepository _role;
         public UnitOfWork(DataContext dbContext)
         {
             _dbContext = dbContext;
+        }
+        public IRoleRepository Role
+        {
+            get
+            {
+                if (_role == null)
+                {
+                    _role = new RoleRepository(_dbContext);
+                }
+                return _role;
+            }
         }
         public ICategoryRepository Category
         {

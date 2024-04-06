@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MusicShop.Application.Common.Errors;
 using MusicShop.Application.Common.Interfaces.Authentication;
-using MusicShop.Domain.Model;
 using MusicShop.Infrastructure.Data;
 using MusicShop.Presentation.Common.DTOs.Authentication;
 using FluentResults;
@@ -9,28 +8,31 @@ using Azure.Core;
 using System.Diagnostics;
 using AutoMapper;
 using MusicShop.Application.Common.Models;
+using MusicShop.Domain.Model.Core;
+using MusicShop.Domain.Enums;
+using MusicShop.Infrastructure.Repository;
 
 namespace MusicShop.Application.Services.Authentication
 {
     public class AuthenticationService : IAuthService
     {
         private readonly IJwtTokenGenerator _jwtTokenGenerator;
-        private readonly DataContext _db;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        public AuthenticationService(IJwtTokenGenerator jwtTokenGenerator,DataContext context,IMapper mapper)
+        public AuthenticationService(IJwtTokenGenerator jwtTokenGenerator, IUnitOfWork unitOfWork, IMapper mapper)
         {
-            _db = context;
+            _unitOfWork = unitOfWork;
             _jwtTokenGenerator = jwtTokenGenerator;
             _mapper = mapper;
             
         }
-        public AuthenticationResult Login(LoginRequest request)
+        public async Task<AuthenticationResult> Login(LoginRequest request)
         {
             var loginDTO = _mapper.Map<LoginRequest,LoginDTO>(request);
 
             //check
-            var userByEmail = _db.Users.SingleOrDefault(x => x.Email == loginDTO.Email);
-            if (userByEmail is not User user)
+            var userByEmail = await _unitOfWork.User.GetUserByLoginAsync( loginDTO.Login);
+            if (userByEmail is not UserEntity user)
             {
                 throw new InvalidEmail();
             }
@@ -43,39 +45,39 @@ namespace MusicShop.Application.Services.Authentication
             return new AuthenticationResult
             {
                     Id=user.Id,
-                    FirstName =user.FirstName,
-                    LastName= user.LastName,
+                    Login=request.Login,
                     Email=user.Email,
                     Token=token,
             };
         }
 
-        public AuthenticationResult Register(RegisterRequest request)
+        public async Task<AuthenticationResult> Register(RegisterRequest request)
         {
             var registerDTO = _mapper.Map<RegisterRequest,RegisterDTO>(request);
 
             //check
-            var userByEmail = _db.Users.SingleOrDefault(x => x.Email == registerDTO.Email);
+            var userByEmail = await _unitOfWork.User.GetUserByLoginAsync(registerDTO.Login);
             if (userByEmail is not null)
             {
                 throw new DuplicateEmailError();
             }
-
+            //Role permissions
+            var roleEntity = await _unitOfWork.Role.GetRoleByIdAsync((int)Role.User);
             //create user
-            var user = new User
+            var user = new UserEntity
             {
-                FirstName = registerDTO.FirstName,
-                LastName = registerDTO.LastName,
+                Login=registerDTO.Login,
                 Email = registerDTO.Email,
-                Password = registerDTO.Password
+                Password = registerDTO.Password,
+                Roles = [roleEntity]
             };
-            _db.Users.AddAsync(user);
-            _db.SaveChangesAsync();
+            _unitOfWork.User.Add(user);
+            await _unitOfWork.SaveAsync();
             return new AuthenticationResult
             {
+
                 Id = user.Id,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
+                Login=user.Login,
                 Email = user.Email,
             };
         }

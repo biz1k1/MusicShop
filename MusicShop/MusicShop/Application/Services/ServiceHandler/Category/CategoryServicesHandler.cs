@@ -1,6 +1,6 @@
 ﻿using MusicShop.Application.Services.FullTreeCategories;
 using MusicShop.Application.Services.ServiceHandler;
-using MusicShop.Domain.Model;
+using MusicShop.Domain.Model.Core;
 using MusicShop.Infrastructure.Data;
 using MusicShop.Infrastructure.Repository;
 
@@ -16,7 +16,7 @@ namespace MusicShop.Application.Services.ServiceHandler
             _unitOfWork = dataContext;
         }
 
-        public IEnumerable<Category> GetFullTreeCategories()
+        public IEnumerable<CategoryEntity> GetFullTreeCategories()
         {
             var allCategories = _unitOfWork.Category.GetAll();
             return _fullTreeCategories.CheckIfTheAreChildrenAndAddThem(null, allCategories);

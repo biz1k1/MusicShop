@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
-using MusicShop.Application.Common.Interfaces.Authentication;
-using MusicShop.Application.Services.Authentication.Identity;
-using System.Security.Cryptography;
 using System.Text;
 
 namespace MusicShop.Application.Services.JwtTokenGenerator
@@ -44,11 +41,6 @@ namespace MusicShop.Application.Services.JwtTokenGenerator
                         }
                     };
                 });
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy(IdentityData.Admin, x =>
-                x.RequireClaim(IdentityData.Admin,"true"));
-            });
             return services;
         }
     }

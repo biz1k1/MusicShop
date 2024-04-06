@@ -1,10 +1,10 @@
-﻿using MusicShop.Domain.Model;
+﻿using MusicShop.Domain.Model.Core;
 
 namespace MusicShop.Infrastructure.Repository
 {
-    public interface ICategoryRepository : IRepository<Category>
+    public interface ICategoryRepository : IRepository<CategoryEntity>
     {
-        Task<IEnumerable<Category>> GetAllCategoryAsync();
-        Task<Category> GetCategoryByIdAsync(int id);
+        Task<IEnumerable<CategoryEntity>> GetAllCategoryAsync();
+        Task<CategoryEntity> GetCategoryByIdAsync(int id);
     }
 }

@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
 using MusicShop.Application.Common.Models;
-using MusicShop.Application.Services.Authentication;
-using MusicShop.Domain.Model;
+using MusicShop.Domain.Model.Aunth;
+using MusicShop.Domain.Model.Core;
 using MusicShop.Presentation.Common.DTOs.Authentication;
 using MusicShop.Presentation.Common.DTOs.Category;
 using MusicShop.Presentation.Common.DTOs.Product;
+using MusicShop.Presentation.Common.DTOs.User;
+
+
 namespace MusicShop.Application.Common.Mapping
 {
     public class MappingProfile : Profile
@@ -13,28 +16,28 @@ namespace MusicShop.Application.Common.Mapping
         public MappingProfile()
         {
             // Category
-            CreateMap<Category, CategoryResponse>();
+            CreateMap<CategoryEntity, CategoryResponse>();
 
-            CreateMap<CategoryResponse, Category>();
-            CreateMap<CategoryRequest, Category>();
+            CreateMap<CategoryResponse, CategoryEntity>();
+            CreateMap<CategoryRequest, CategoryEntity>();
 
-            CreateMap<Category, CategoryResponseByProduct>()
+            CreateMap<CategoryEntity, CategoryResponseByProduct>()
                 .ForMember(dest => dest.Name, src => src.MapFrom(x => x.Name))
                 .ForMember(dest => dest.Id, src => src.MapFrom(x => x.Id))
                 .ForMember(dest => dest.products, src => src.MapFrom(x => x.Product));
 
-            CreateMap<Category, CategoryResponseUpdate>();
+            CreateMap<CategoryEntity, CategoryResponseUpdate>();
 
-            CreateMap<CategoryResponseUpdate, Category>();
+            CreateMap<CategoryResponseUpdate, CategoryEntity>();
 
             // Product
-            CreateMap<Product, ProductRequest>();
-            CreateMap<ProductRequest, Product>();
+            CreateMap<ProductEntity, ProductRequest>();
+            CreateMap<ProductRequest, ProductEntity>();
 
-            CreateMap<Product, ProductResponse>()
+            CreateMap<ProductEntity, ProductResponse>()
                 .ForMember(dest => dest.CategoryId, src => src.MapFrom(x => x.Category.Id));
 
-            CreateMap<ProductRequestUpdate, Product>();
+            CreateMap<ProductRequestUpdate, ProductEntity>();
             //Authentication
 
             CreateMap<LoginRequest,LoginDTO>();
@@ -42,6 +45,10 @@ namespace MusicShop.Application.Common.Mapping
 
             CreateMap<RegisterRequest, RegisterDTO>();
             CreateMap<RegisterDTO, RegisterRequest>();
+            //Role
+            CreateMap<UserRequest, RoleEntity>();
+            //User
+            CreateMap<UserEntity, UserResponse>();
         }
 
 
