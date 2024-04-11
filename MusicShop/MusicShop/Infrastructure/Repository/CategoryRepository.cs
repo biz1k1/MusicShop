@@ -9,17 +9,15 @@ namespace MusicShop.Infrastructure.Repository
         public CategoryRepository(DataContext dbContext) : base(dbContext)
         {
         }
-        public async Task<IEnumerable<CategoryEntity>> GetAllCategoryAsync()
-        {
-            return await GetAll().ToListAsync();
-            
-        }
-        public async Task<CategoryEntity> GetCategoryByIdAsync(int id)
-        {
-            return await FindByCondition(x => x.Id == id).FirstOrDefaultAsync();
-        }
 
-
+        public async Task<IEnumerable<CategoryEntity>> GetCategoryWithChildren(int id)
+        {
+            return await _dbContext.Categories.Where(x => x.Id == id).Include(x => x.ChildCategories).ThenInclude(x => x.ChildCategories).ToListAsync();
+        }
+        public async Task<IEnumerable<CategoryEntity>> CategoryWithProducts(int id)
+        {
+            return await _dbContext.Categories.Where(x=>x.Id==id).Include(x => x.Product).ToListAsync();
+        }
 
     }
 }

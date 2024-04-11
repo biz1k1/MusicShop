@@ -11,7 +11,7 @@ namespace MusicShop.Domain.Model.Core
         public string Email { get; set; }
         public string Password { get; set; }
 
-        public List<RoleEntity> Roles { get; set; } = new List<RoleEntity>();
+        public virtual List<RoleEntity> Roles { get; set; } = new List<RoleEntity>();
 
 
     }

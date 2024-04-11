@@ -36,21 +36,21 @@ namespace MusicShop.Presentation.Controllers
         [HttpGet]
         public async Task<ActionResult> GetCategories()
         {
-            var FullTreeCategories = _services.GetFullTreeCategories().ToList();
-            var categoriesResponse = _mapper.Map<List<CategoryEntity>, List<CategoryResponse>>(FullTreeCategories);
+            var FullTreeCategories = await _services.GetFullTreeCategories();
+            var categoriesResponse = _mapper.Map<List<CategoryEntity>, List<CategoryResponse>>((List<CategoryEntity>)FullTreeCategories);
             return Ok(categoriesResponse);
         }
         [Authorize(Policy = "Read")]
         [HttpGet("{id}")]
         public async Task<ActionResult> GetCategoryById(int id)
         {
-            var category = await _unitOfWork.Category.FindByCondition(x=>x.Id==id).Include(x => x.ChildCategories).ThenInclude(x => x.ChildCategories).ToListAsync();
-            if (category.Count==0)
+            var category = await _unitOfWork.Category.GetCategoryWithChildren(id);
+            if (category.Count()==0)
             {
                 ModelState.AddModelError("return", "Category not found");
                 return ValidationProblem(ModelState);
             }
-            var categoryResponse = _mapper.Map<List<CategoryEntity>, List<CategoryResponse>>(category);
+            var categoryResponse = _mapper.Map<List<CategoryEntity>, List<CategoryResponse>>((List<CategoryEntity>)category);
 
             return Ok(categoryResponse);
         }
@@ -63,7 +63,7 @@ namespace MusicShop.Presentation.Controllers
                 return ValidationProblem(BehaviorExtensions.AddToModelState(validationResult));
             }
             var responseCategory = _mapper.Map<CategoryEntity>(category);
-            var subCategory = await _unitOfWork.Category.GetCategoryByIdAsync(category.SubCategoryId);
+            var subCategory = await _unitOfWork.Category.GetByIdAsync(category.SubCategoryId);
             if (subCategory != null) {
                 subCategory.ChildCategories.Add(responseCategory);
             }
@@ -76,7 +76,7 @@ namespace MusicShop.Presentation.Controllers
         [HttpDelete]
         public async Task<ActionResult> Delete(int id)
         {
-            var category = await _unitOfWork.Category.GetCategoryByIdAsync(id);
+            var category = await _unitOfWork.Category.GetByIdAsync(id);
             if (category == null)
             {
                 ModelState.AddModelError("return", "Category not found");

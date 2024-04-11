@@ -15,20 +15,16 @@ namespace MusicShop.Infrastructure.Repository
         }
         public async Task<IEnumerable<UserEntity>> GetAllUsersIncludeRoleAsync()
         {
-            return await GetAll().Include(x=>x.Roles).ToListAsync();
+            return await _dbContext.Users.Include(x=>x.Roles).ToListAsync();
 
-        }
-        public async Task<UserEntity> GetUserByIdAsync(int id)
-        {
-            return await FindByCondition(x => x.Id == id).FirstOrDefaultAsync();
         }
         public async Task<UserEntity> GetUserIncludeRoleAsync(int id)
         {
-            return await FindByCondition(x => x.Id == id).Include(x => x.Roles).FirstOrDefaultAsync();
+            return await _dbContext.Users.Where(x => x.Id == id).Include(x => x.Roles).FirstOrDefaultAsync();
         }
         public async Task<UserEntity> GetUserByLoginAsync(string? login)
         {
-            return await FindByCondition(x=>x.Login==login).FirstOrDefaultAsync();
+            return await _dbContext.Users.Where(x=>x.Login==login).FirstOrDefaultAsync();
         }
 
         public  HashSet<Permissions> GetUserPermissions(int userId)

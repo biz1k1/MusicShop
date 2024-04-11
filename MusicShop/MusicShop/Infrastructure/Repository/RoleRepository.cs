@@ -15,15 +15,5 @@ namespace MusicShop.Infrastructure.Repository
             _dbContext = DataContext;
         }
 
-        public RoleEntity GetRoleById(int id)
-        {
-            return FindByCondition(x => x.Id == id).FirstOrDefault();
-        }
-
-        public async Task<RoleEntity> GetRoleByIdAsync(int id)
-        {
-            return await FindByCondition(x => x.Id == id).SingleOrDefaultAsync();
-            //return await _dbContext.Roles.FirstOrDefaultAsync(x=>x.Id==id);
-        }
     }
 }

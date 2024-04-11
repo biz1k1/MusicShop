@@ -4,8 +4,8 @@ namespace MusicShop.Infrastructure.Repository
 {
     public interface IRepository<T>
     {
-        IQueryable<T> GetAll();
-        IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression);
+        Task<IEnumerable<T>> GetAllAsync();
+        Task<T> GetByIdAsync(int id);
 
         void Add(T entity);
         void Update(T entity);

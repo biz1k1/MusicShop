@@ -4,7 +4,7 @@ namespace MusicShop.Application.Services.ServiceHandler
 {
     public interface ICategoryServicesHandler
     {
-        IEnumerable<CategoryEntity> GetFullTreeCategories();
+        Task<IEnumerable<CategoryEntity>> GetFullTreeCategories();
 
     }
 }

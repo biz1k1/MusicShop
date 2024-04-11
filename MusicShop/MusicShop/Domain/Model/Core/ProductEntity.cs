@@ -12,6 +12,6 @@ namespace MusicShop.Domain.Model.Core
         public string Description { get; set; }
         public int InStock { get; set; }
         public double Price { get; set; }
-        public CategoryEntity Category { get; set; }
+        public virtual CategoryEntity Category { get; set; }
     }
 }

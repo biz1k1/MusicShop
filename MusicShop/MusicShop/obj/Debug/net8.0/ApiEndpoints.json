@@ -50,7 +50,7 @@
   {
     "ContainingType": "MusicShop.Presentation.Controllers.CategoryController",
     "Method": "AddCategory",
-    "RelativePath": "api/Category/Add",
+    "RelativePath": "api/Category/Create",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -166,7 +166,7 @@
   {
     "ContainingType": "MusicShop.Presentation.Controllers.ProductController",
     "Method": "GetProductByCategory",
-    "RelativePath": "api/Product/GetProductsByCategory",
+    "RelativePath": "api/Product/ProductByCategory",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -214,7 +214,7 @@
   {
     "ContainingType": "MusicShop.Presentation.Controllers.UserController",
     "Method": "AddAdminUser",
-    "RelativePath": "api/User/CreateAdminUser",
+    "RelativePath": "api/User/CreateAdmin",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

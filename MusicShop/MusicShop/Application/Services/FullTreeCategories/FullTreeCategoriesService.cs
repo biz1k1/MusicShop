@@ -11,7 +11,7 @@ public class FullTreeCategoriesService: IFullTreeCategoryService
         {
             child.ChildCategories = (ICollection<CategoryEntity>)CheckIfTheAreChildrenAndAddThem(child.Id, allCategories);
         }
-        return children;
+        return children.ToList();
     }
 
 

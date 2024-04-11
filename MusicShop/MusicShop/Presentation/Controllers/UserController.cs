@@ -73,7 +73,7 @@ namespace MusicShop.Presentation.Controllers
         public async Task<IActionResult> AddAdminUser(UserRequest userRequest)
         {
             
-            var roleIdentity=await _unitOfWork.Role.GetRoleByIdAsync((int)Role.Admin);
+            var roleIdentity=await _unitOfWork.Role.GetByIdAsync((int)Role.Admin);
             var user=_mapper.Map<UserRequest, UserEntity>(userRequest);
             user.Roles = [roleIdentity];
             _unitOfWork.User.Add(user);

@@ -8,34 +8,36 @@ namespace MusicShop.Infrastructure.Repository
     public abstract class Repository<T> : IRepository<T> where T : class
     {
         protected readonly DataContext _dbContext;
+        private readonly DbSet<T> _dbSet;
         public Repository(DataContext dbContext)
         {
             _dbContext = dbContext;
+            _dbSet = dbContext.Set<T>();
         }
 
-        public IQueryable<T> GetAll()
+        public async Task<IEnumerable<T>> GetAllAsync() 
         {
-            return  _dbContext.Set<T>().AsNoTracking();
+            return await _dbSet.ToListAsync();
         }
 
-        public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression)
+        public async Task<T> GetByIdAsync(int id)
         {
-            return _dbContext.Set<T>().Where(expression).AsNoTracking();
+            return await _dbSet.FindAsync(id);
         }
-
+        
         public  void Add(T entity)
         {
-           _dbContext.Set<T>().Add(entity);
+            _dbSet.AddAsync(entity);
         }
 
         public void Update(T entity)
         {
-           _dbContext.Set<T>().Update(entity);
+            _dbSet.Update(entity);
         }
 
         public void Remove(T entity)
         {
-            _dbContext.Set<T>().Remove(entity);
+            _dbSet.Remove(entity);
         }
     }
 }

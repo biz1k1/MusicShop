@@ -20,7 +20,7 @@ namespace MusicShop.Application.Services.DbInitializer
                 Email = "admin@mail.ru",
                 Login = "admin",
                 Password = "admin",
-                Roles = [await _unitOfWork.Role.GetRoleByIdAsync((int)Role.Admin)]
+                Roles = [await _unitOfWork.Role.GetByIdAsync((int)Role.Admin)]
 
             };
             var user = new UserEntity
@@ -28,7 +28,7 @@ namespace MusicShop.Application.Services.DbInitializer
                 Email = "user@mail.ru",
                 Login = "user",
                 Password = "user",
-                Roles = [await _unitOfWork.Role.GetRoleByIdAsync((int)Role.User)]
+                Roles = [await _unitOfWork.Role.GetByIdAsync((int)Role.User)]
 
             };
             userEntities.Add(user);

@@ -29,17 +29,18 @@ namespace MusicShop.Presentation.Controllers
             _validator = validator;
         }
         [Authorize(Policy = "Read")]
+        [Route(template: "ProductByCategory")]
         [HttpGet]
-        [HttpGet("{id}")]
+        //??
         public async Task<ActionResult> GetProductByCategory(int id)
         {
-            var category = await _unitOfWork.Category.FindByCondition(x => x.Id == id).Include(x => x.Product).ToListAsync();
+            var category = await _unitOfWork.Category.CategoryWithProducts(id);
             if (category == null)
             {
                 ModelState.AddModelError("return", "Category not found");
                 return ValidationProblem(ModelState);
             }
-            var productResponse = _mapper.Map<List<CategoryEntity>, List<CategoryResponseByProduct>>(category);
+            var productResponse = _mapper.Map<List<CategoryEntity>, List<CategoryResponseByProduct>>((List<CategoryEntity>)category);
             return Ok(productResponse);
         }
         [Authorize(Policy = "Read")]
@@ -47,7 +48,7 @@ namespace MusicShop.Presentation.Controllers
         [Route(template: "GetAll")]
         public async Task<ActionResult> GetAllProduct()
         {
-            var products = _unitOfWork.Product.GetProductsIncludeCategory();
+            var products = await _unitOfWork.Product.GetProductsIncludeCategoryAsync();
             var productsResponse = _mapper.Map<IEnumerable<ProductEntity>, IEnumerable<ProductResponse>>(products);
             return Ok(productsResponse);
         }
@@ -74,7 +75,7 @@ namespace MusicShop.Presentation.Controllers
             {
                 return ValidationProblem(BehaviorExtensions.AddToModelState(validationResult));
             }
-            var category = await _unitOfWork.Category.GetCategoryByIdAsync(product.CategoryId);
+            var category = await _unitOfWork.Category.GetByIdAsync(product.CategoryId);
             if (category == null)
             {
                 ModelState.AddModelError("return", "Category not found");
@@ -93,7 +94,7 @@ namespace MusicShop.Presentation.Controllers
         [Route(template: "Delete")]
         public async Task<ActionResult> Delete(int id)
         {
-            var product = await _unitOfWork.Product.GetProductByIdAsync(id);
+            var product = await _unitOfWork.Product.GetByIdAsync(id);
             if (product == null)
             {
                 ModelState.AddModelError("return", "Product not found");
@@ -113,7 +114,7 @@ namespace MusicShop.Presentation.Controllers
             {
                 return ValidationProblem(BehaviorExtensions.AddToModelState(validationResult));
             }
-            var findProduct = await _unitOfWork.Product.GetProductByIdAsync(product.Id);
+            var findProduct = await _unitOfWork.Product.GetByIdAsync(product.Id);
             if (findProduct==null)
             {
                 ModelState.AddModelError("return", "Product not found");
@@ -122,7 +123,7 @@ namespace MusicShop.Presentation.Controllers
 
             
             var responseProduct = _mapper.Map<ProductEntity>(product);
-            var findCategory = await _unitOfWork.Category.FindByCondition(x => x.Id == product.CategoryId).FirstOrDefaultAsync();
+            var findCategory = await _unitOfWork.Category.GetByIdAsync(product.CategoryId);
             responseProduct.Category = findCategory;
             _unitOfWork.Product.Update(responseProduct);
             await _unitOfWork.SaveAsync();

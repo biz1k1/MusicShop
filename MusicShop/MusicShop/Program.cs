@@ -2,8 +2,6 @@ using MusicShop.Application;
 using Microsoft.AspNetCore.CookiePolicy;
 
 
-
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -27,3 +25,4 @@ app.UseCookiePolicy(new CookiePolicyOptions
 });
 app.MapControllers();
 app.Run();
+public partial class Program { }

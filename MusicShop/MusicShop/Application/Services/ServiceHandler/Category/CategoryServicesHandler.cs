@@ -16,9 +16,9 @@ namespace MusicShop.Application.Services.ServiceHandler
             _unitOfWork = dataContext;
         }
 
-        public IEnumerable<CategoryEntity> GetFullTreeCategories()
+        public async Task<IEnumerable<CategoryEntity>> GetFullTreeCategories()
         {
-            var allCategories = _unitOfWork.Category.GetAll();
+            var allCategories = await _unitOfWork.Category.GetAllAsync();
             return _fullTreeCategories.CheckIfTheAreChildrenAndAddThem(null, allCategories);
         }
     }

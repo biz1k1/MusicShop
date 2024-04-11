@@ -62,7 +62,7 @@ namespace MusicShop.Application.Services.Authentication
                 throw new DuplicateEmailError();
             }
             //Role permissions
-            var roleEntity = await _unitOfWork.Role.GetRoleByIdAsync((int)Role.User);
+            var roleEntity = await _unitOfWork.Role.GetByIdAsync((int)Role.User);
             //create user
             var user = new UserEntity
             {
