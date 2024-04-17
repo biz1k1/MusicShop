@@ -26,9 +26,9 @@ namespace MusicShop.Application.Common.Mapping
                 .ForMember(dest => dest.Id, src => src.MapFrom(x => x.Id))
                 .ForMember(dest => dest.products, src => src.MapFrom(x => x.Product));
 
-            CreateMap<CategoryEntity, CategoryResponseUpdate>();
+            CreateMap<CategoryEntity, CategoryRequestUpdate>();
 
-            CreateMap<CategoryResponseUpdate, CategoryEntity>();
+            CreateMap<CategoryRequestUpdate, CategoryEntity>();
 
             // Product
             CreateMap<ProductEntity, ProductRequest>();

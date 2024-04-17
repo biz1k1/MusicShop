@@ -9,6 +9,7 @@ using MusicShop.Application.Common.Behavior;
 using MusicShop.Application.Services.ServiceHandler;
 using MusicShop.Domain.Model.Core;
 using Microsoft.AspNetCore.Authorization;
+using MusicShop.Application.Common.Errors;
 
 
 namespace MusicShop.Presentation.Controllers
@@ -22,7 +23,10 @@ namespace MusicShop.Presentation.Controllers
         private readonly IMapper _mapper;
         private readonly ICategoryServicesHandler _services;
         private readonly IValidator<CategoryRequest> _validator;
-        public CategoryController(IUnitOfWork repository, IMapper mapper, ICategoryServicesHandler services,
+        public CategoryController(
+            IUnitOfWork repository, 
+            IMapper mapper, 
+            ICategoryServicesHandler services,
             IValidator<CategoryRequest> validator)
         {
             _unitOfWork = repository;
@@ -31,6 +35,8 @@ namespace MusicShop.Presentation.Controllers
             _validator = validator;
 
         }
+
+
         [Authorize(Policy = "Read")]
         [Route(template: "GetAll")]
         [HttpGet]
@@ -40,61 +46,89 @@ namespace MusicShop.Presentation.Controllers
             var categoriesResponse = _mapper.Map<List<CategoryEntity>, List<CategoryResponse>>((List<CategoryEntity>)FullTreeCategories);
             return Ok(categoriesResponse);
         }
+
+
         [Authorize(Policy = "Read")]
         [HttpGet("{id}")]
         public async Task<ActionResult> GetCategoryById(int id)
         {
-            var category = await _unitOfWork.Category.GetCategoryWithChildren(id);
-            if (category.Count()==0)
+            var categoryEntity = await _unitOfWork.Category.GetCategoryWithChildren(id);
+
+            if (categoryEntity.Count()==0)
             {
-                ModelState.AddModelError("return", "Category not found");
-                return ValidationProblem(ModelState);
+                throw new CategoryNotFound();
             }
-            var categoryResponse = _mapper.Map<List<CategoryEntity>, List<CategoryResponse>>((List<CategoryEntity>)category);
+
+            var categoryResponse = _mapper.Map<List<CategoryEntity>, List<CategoryResponse>>((List<CategoryEntity>)categoryEntity);
 
             return Ok(categoryResponse);
         }
+
+
         [Authorize(Policy = "Create")]
         [Route(template: "Create")]
         [HttpPost]
-        public async Task<ActionResult> AddCategory(CategoryRequest category) {
-            ValidationResult validationResult = await _validator.ValidateAsync(category);
-            if (!validationResult.IsValid) {
+        public async Task<ActionResult> AddCategory(CategoryRequest? categoryRequest) {
+
+            ValidationResult validationResult = await _validator.ValidateAsync(categoryRequest);
+
+            if (!validationResult.IsValid)
+            {
                 return ValidationProblem(BehaviorExtensions.AddToModelState(validationResult));
             }
-            var responseCategory = _mapper.Map<CategoryEntity>(category);
-            var subCategory = await _unitOfWork.Category.GetByIdAsync(category.SubCategoryId);
-            if (subCategory != null) {
-                subCategory.ChildCategories.Add(responseCategory);
+
+            var categoryEntity = _mapper.Map<CategoryEntity>(categoryRequest);
+            var parentCategory = await _unitOfWork.Category.GetByIdAsync(categoryRequest.SubCategoryId);
+
+            if (parentCategory != null)
+            {
+                parentCategory.ChildCategories.Add(categoryEntity);
             }
-            _unitOfWork.Category.Add(responseCategory);
+            _unitOfWork.Category.Add(categoryEntity);
             await _unitOfWork.SaveAsync();
             return Ok();
         }
+
+
         [Authorize(Policy = "Delete")]
         [Route(template: "Delete")]
         [HttpDelete]
         public async Task<ActionResult> Delete(int id)
         {
             var category = await _unitOfWork.Category.GetByIdAsync(id);
+
             if (category == null)
             {
-                ModelState.AddModelError("return", "Category not found");
-                return ValidationProblem(ModelState);
+                throw new CategoryNotFound();
             }
 
             _unitOfWork.Category.Remove(category);
             await _unitOfWork.SaveAsync();
             return Ok();
         }
+
+
         [Authorize(Policy = "Update")]
         [Route(template: "Update")]
-        [HttpPatch]
-        public async Task<ActionResult> Update(CategoryResponseUpdate category)
+        [HttpPut]
+        public async Task<ActionResult> Update(CategoryRequestUpdate categoryRequest)
         {
 
-            var categoryResponse = _mapper.Map<CategoryEntity>(category);
-            _unitOfWork.Category.Update(categoryResponse);
+            var categoryToChange = await _unitOfWork.Category.GetByIdAsync(categoryRequest.CategoryToChangeId);
+            if (categoryToChange == null)
+            {
+                throw new CategoryNotFound();
+            }
+
+
+            var parentCategory = await _unitOfWork.Category.GetByIdAsync((int)categoryRequest.ParentCategoryId);
+            if (parentCategory.Id == categoryToChange.Id)
+            {
+                throw new CategoryReference();
+            }
+
+            var categoryEntity = _mapper.Map<CategoryEntity>(categoryRequest);
+            parentCategory.ChildCategories.Add(categoryEntity);
             await _unitOfWork.SaveAsync();
             return Ok();
         }

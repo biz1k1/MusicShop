@@ -18,11 +18,11 @@ namespace MusicShop.Infrastructure.Repository
             return await _dbContext.Users.Include(x=>x.Roles).ToListAsync();
 
         }
-        public async Task<UserEntity> GetUserIncludeRoleAsync(int id)
+        public async Task<UserEntity?> GetUserIncludeRoleAsync(int id)
         {
             return await _dbContext.Users.Where(x => x.Id == id).Include(x => x.Roles).FirstOrDefaultAsync();
         }
-        public async Task<UserEntity> GetUserByLoginAsync(string? login)
+        public async Task<UserEntity?> GetUserByLoginAsync(string login)
         {
             return await _dbContext.Users.Where(x=>x.Login==login).FirstOrDefaultAsync();
         }

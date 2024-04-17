@@ -19,6 +19,7 @@ namespace MusicShop.Presentation.Common.FilterError
             System.Diagnostics.StackTrace trace = new System.Diagnostics.StackTrace(exception, true);
             ProblemDetails problemDetails = new ProblemDetails()
             {
+                Title = $"API error : {exception.Message}",
                 Status = (int)HttpStatusCode.InternalServerError,
 
             };
@@ -28,28 +29,49 @@ namespace MusicShop.Presentation.Common.FilterError
                 switch (sqlException.Number)
                 {
                     case 2601:
-                        problemDetails.Title = "Duplicate name.";
+                        problemDetails.Title = $"API error : Duplicate name.";
+                        problemDetails.Status= StatusCodes.Status409Conflict;
                         break;
                 }
+                problemDetails.Detail= exception.InnerException.Message;
             }
             if(exception is DuplicateEmailError)
             {
-                problemDetails.Title = "Email already exist.";
+                problemDetails.Title = $"API error: Email already exist.";
                 problemDetails.Status = StatusCodes.Status409Conflict;
             }
-            if(exception is InvalidEmail)
+            if(exception is InvalidLogin)
             {
-                problemDetails.Title = "Email is incorrect or does not exist.";
+                problemDetails.Title = $"API error : Login is incorrect or does not exist.";
+                problemDetails.Status = StatusCodes.Status404NotFound;
             }
             if(exception is InvalidPassword)
             {
-                problemDetails.Title = "Password is incorrect or does not exist.";
+                problemDetails.Title = $"API error : Password is incorrect or does not exist.";
+                problemDetails.Status = StatusCodes.Status404NotFound;
             }
-
-            else
+            if(exception is UserNotFound)
             {
-                problemDetails.Title = exception.InnerException.Message;
+                problemDetails.Title = $"API error : User was not found.";
+                problemDetails.Status = StatusCodes.Status404NotFound;
             }
+            if(exception is CategoryNotFound)
+            {
+                problemDetails.Title = $"API error : Category was not found.";
+                problemDetails.Status = StatusCodes.Status404NotFound;
+            }
+            if(exception is ProductNotFound)
+            {
+                problemDetails.Title = $"API error : Product was not found.";
+                problemDetails.Status = StatusCodes.Status404NotFound;
+            }
+            if(exception is CategoryReference)
+            {
+                problemDetails.Title = $"API error : A category can't refer to itself.";
+                problemDetails.Status = StatusCodes.Status400BadRequest;
+            }
+            
+
             _logger.Error($"Catch exception:{problemDetails.Title}|| trace:{trace.GetFrame(0).GetFileLineNumber()}");
             context.Result = new ObjectResult(problemDetails);
             context.ExceptionHandled = true;

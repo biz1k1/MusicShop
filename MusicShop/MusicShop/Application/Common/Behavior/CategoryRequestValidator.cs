@@ -5,7 +5,7 @@ using MusicShop.Presentation.Common.DTOs.Category;
 
 namespace MusicShop.Application.Common.Behavior
 {
-    public class CategoryRequestValidator: AbstractValidator<CategoryRequest>
+    public class CategoryRequestValidator : AbstractValidator<CategoryRequest>
     {
         public CategoryRequestValidator()
         {

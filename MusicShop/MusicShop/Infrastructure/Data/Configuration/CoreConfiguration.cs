@@ -7,9 +7,6 @@ using MusicShop.Infrastructure.Repository;
 namespace MusicShop.Infrastructure.Data.Configuration
 {
     //Category
-
-
-
     public class CategoryConfiguration : IEntityTypeConfiguration<CategoryEntity>
     {
         public void Configure(EntityTypeBuilder<CategoryEntity> builder)
@@ -28,7 +25,7 @@ namespace MusicShop.Infrastructure.Data.Configuration
                 .HasForeignKey(d => d.Category);
         }
     }
-    //Product
+    //Product 
     public class ProductConfiguration : IEntityTypeConfiguration<ProductEntity>
     {
         public void Configure(EntityTypeBuilder<ProductEntity> builder)

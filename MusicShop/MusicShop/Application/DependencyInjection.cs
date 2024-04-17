@@ -16,6 +16,7 @@ using MusicShop.Infrastructure.Repository;
 using MusicShop.Presentation.Common.FilterError;
 using MusicShop.Domain.Enums;
 using MusicShop.Application.Services.DbInitializer;
+using Microsoft.Extensions.Options;
 
 namespace MusicShop.Application
 {
@@ -29,7 +30,8 @@ namespace MusicShop.Application
             services.AddControllers(options => options.Filters.Add<GlobalErrorHandlingFilter>());
 
             services.AddControllersWithViews()
-            .AddNewtonsoftJson(options =>options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
+            .AddNewtonsoftJson(options => options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore);
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
 

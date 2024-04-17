@@ -56,9 +56,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "category",
+        "Name": "categoryRequest",
         "Type": "MusicShop.Presentation.Common.DTOs.Category.CategoryRequest",
-        "IsRequired": true
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -93,13 +93,13 @@
     "ContainingType": "MusicShop.Presentation.Controllers.CategoryController",
     "Method": "Update",
     "RelativePath": "api/Category/Update",
-    "HttpMethod": "PATCH",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "category",
-        "Type": "MusicShop.Presentation.Common.DTOs.Category.CategoryResponseUpdate",
+        "Name": "categoryRequest",
+        "Type": "MusicShop.Presentation.Common.DTOs.Category.CategoryRequestUpdate",
         "IsRequired": true
       }
     ],
@@ -183,7 +183,7 @@
     "ContainingType": "MusicShop.Presentation.Controllers.ProductController",
     "Method": "Update",
     "RelativePath": "api/Product/Update",
-    "HttpMethod": "PATCH",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -267,7 +267,7 @@
     "ContainingType": "MusicShop.Presentation.Controllers.UserController",
     "Method": "UpdateUser",
     "RelativePath": "api/User/UpdateUser",
-    "HttpMethod": "PATCH",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
