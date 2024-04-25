@@ -15,5 +15,9 @@ namespace MusicShop.Infrastructure.Repository
             _dbContext = DataContext;
         }
 
+        public async Task<RoleEntity?> GetExistRole(string role)
+        {
+            return await _dbContext.Roles.FirstOrDefaultAsync(x=>x.Name==role);
+        }
     }
 }

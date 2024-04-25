@@ -5,6 +5,7 @@ using MusicShop.Infrastructure.Repository;
 using MusicShop.Presentation.Common.DTOs.Category;
 using MusicShop.Presentation.Controllers;
 using MusicShop.Application.Services.ServiceHandler;
+using Test.Presentation.Common;
 namespace Test.Presentation.CategoryControllerTest
 {
 
@@ -23,11 +24,10 @@ namespace Test.Presentation.CategoryControllerTest
         
         public async Task GetByIdAsync_ShouldReturnCATEGORY_WhenCategoryExist()
         {
-
         }
         public async Task GetListAsync_ShouldReturnCATEGORIES_WhenCategoriesExist()
         {
-
+            
         }
     }
 }

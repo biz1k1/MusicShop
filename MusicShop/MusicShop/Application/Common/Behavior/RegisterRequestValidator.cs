@@ -9,13 +9,13 @@ namespace MusicShop.Application.Common.Behavior
         {
             RuleFor(x => x.Login)
                 .NotEmpty()
-                .Length(1,20);
+                .Length(6,20);
             RuleFor(x => x.Email)
                 .NotEmpty()
                 .EmailAddress();
             RuleFor(x => x.Password)
                 .NotEmpty()
-                .Length(1, 40);
+                .Length(6, 40);
         }
     }
 }

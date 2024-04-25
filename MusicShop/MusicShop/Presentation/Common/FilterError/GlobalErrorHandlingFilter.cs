@@ -40,14 +40,9 @@ namespace MusicShop.Presentation.Common.FilterError
                 problemDetails.Title = $"API error: Email already exist.";
                 problemDetails.Status = StatusCodes.Status409Conflict;
             }
-            if(exception is InvalidLogin)
+            if(exception is InvalidUserData)
             {
-                problemDetails.Title = $"API error : Login is incorrect or does not exist.";
-                problemDetails.Status = StatusCodes.Status404NotFound;
-            }
-            if(exception is InvalidPassword)
-            {
-                problemDetails.Title = $"API error : Password is incorrect or does not exist.";
+                problemDetails.Title = $"API error : Login or password is incorrect or does not exist.";
                 problemDetails.Status = StatusCodes.Status404NotFound;
             }
             if(exception is UserNotFound)
@@ -69,6 +64,11 @@ namespace MusicShop.Presentation.Common.FilterError
             {
                 problemDetails.Title = $"API error : A category can't refer to itself.";
                 problemDetails.Status = StatusCodes.Status400BadRequest;
+            }
+            if(exception is InvalidRoleUser)
+            {
+                problemDetails.Title = $"API error : A role doesn't exist.";
+                problemDetails.Status = StatusCodes.Status404NotFound;
             }
             
 

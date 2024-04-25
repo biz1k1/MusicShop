@@ -1,15 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MusicShop.Infrastructure.Repository;
-using Microsoft.EntityFrameworkCore;
 using MusicShop.Domain.Model.Core;
 using MusicShop.Presentation.Common.DTOs.User;
 using AutoMapper;
 using MusicShop.Domain.Enums;
-using MusicShop.Domain.Model.Aunth;
-using MusicShop.Application.Services.DbInitializer;
 using MusicShop.Application.Services.ServiceHandler.User;
 using Microsoft.AspNetCore.Authorization;
-using MusicShop.Application.Services.Authorization.PermissionService;
 using MusicShop.Application.Common.Errors;
 
 
@@ -58,17 +54,7 @@ namespace MusicShop.Presentation.Controllers
         public async Task<IActionResult> GetAllUsers()
         {
             var allUsers = (await _unitOfWork.User.GetAllUsersIncludeRoleAsync()).ToList();
-            var userResponse = _mapper.Map<List<UserEntity>, List<UserResponse>>(allUsers);
-            foreach (var user in userResponse)
-            {
-                foreach (var Allusers in allUsers)
-                {
-                    foreach (var roles in Allusers.Roles)
-                    {
-                        user.Role = roles.Name;
-                    }
-                }
-            }
+            var userResponse = _mapper.Map<IEnumerable<UserResponse>>(allUsers);
             return Ok(userResponse);
         }
 
@@ -78,16 +64,14 @@ namespace MusicShop.Presentation.Controllers
         public async Task<IActionResult> GetUserById(int id)
         {
 
-            var userById = await _unitOfWork.User.GetUserIncludeRoleAsync(id);
+            var user = await _unitOfWork.User.GetUserIncludeRoleAsync(id);
 
-            if (userById==null)
+            if (user==null)
             {
                 throw new UserNotFound();
             }
 
-            var userResponse = _mapper.Map<UserEntity, UserResponse>(userById);
-            userResponse.Role=userById.Roles.Select(x=>x.Name).FirstOrDefault();
-
+            var userResponse = _mapper.Map<UserEntity, UserResponse>(user);
             return Ok(userResponse);
         }
 
@@ -114,20 +98,35 @@ namespace MusicShop.Presentation.Controllers
         public async Task<IActionResult> RemoveUser(int id)
         {
             var user = await _unitOfWork.User.GetUserIncludeRoleAsync(id);
-
+            if (user == null)
+            {
+                throw new UserNotFound();
+            }
             _unitOfWork.User.Remove(user);
             await _unitOfWork.SaveAsync();
             return Ok();
         }
-
+ 
 
         [Authorize(Policy = "Update")]
         [HttpPut]
         [Route(template: "UpdateUser")]
-        public async Task<IActionResult> UpdateUser(UserEntity userDTO)
+        public async Task<IActionResult> UpdateUser(UserRequestUpdate userDTO)
         {
-            var user = _mapper.Map<UserEntity>(userDTO);
+            var user = await _unitOfWork.User.GetUserIncludeRoleAsync(userDTO.Id);
+            if (user == null)
+            {
+                throw new UserNotFound();
+            }
 
+            var usersRoles = await _unitOfWork.Role.GetExistRole(userDTO.Role);
+            var roleIdentity = await _unitOfWork.Role.GetByIdAsync(usersRoles.Id);
+            if (usersRoles == null || roleIdentity == null)
+            {
+                throw new InvalidRoleUser();
+            }
+
+            user.Roles = [roleIdentity];
             _unitOfWork.User.Update(user);
             await _unitOfWork.SaveAsync();
             return Ok();

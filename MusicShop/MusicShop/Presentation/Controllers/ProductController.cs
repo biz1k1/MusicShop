@@ -10,6 +10,7 @@ using MusicShop.Presentation.Common.DTOs.Product;
 using MusicShop.Domain.Model.Core;
 using MusicShop.Application.Common.Errors;
 
+
 namespace MusicShop.Presentation.Controllers
 {
     [ApiController]
@@ -134,18 +135,20 @@ namespace MusicShop.Presentation.Controllers
                 return ValidationProblem(BehaviorExtensions.AddToModelState(validationResult));
             }
 
-            var findProduct = await _unitOfWork.Product.GetByIdAsync(product.Id);
+            var productWithCategory = await _unitOfWork.Product.GetProductIncludeCategoryByIdAsync(product.Id);
 
-            if (findProduct==null)
+            if (productWithCategory==null)
             {
                 throw new ProductNotFound();
             }
-
-            var responseProduct = _mapper.Map<ProductEntity>(product);
             var findCategory = await _unitOfWork.Category.GetByIdAsync(product.CategoryId);
-            responseProduct.Category = findCategory;
+            if (findCategory==null)
+            {
+                throw new CategoryNotFound();
+            }
 
-            _unitOfWork.Product.Update(responseProduct);
+            productWithCategory.Category = findCategory;
+            _unitOfWork.Product.Update(productWithCategory);
             await _unitOfWork.SaveAsync();
             return Ok();
         }

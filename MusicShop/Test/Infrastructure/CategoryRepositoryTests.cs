@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using MusicShop.Infrastructure.Data;
 using MusicShop.Infrastructure.Repository;
 using Test.Infrastructure.Common;
-using Test.Infrastructure.Common.TestDbAsyncFactory;
+using System.Reflection.Metadata;
 namespace Test.Infrastructure
 {
     public class CategoryRepositoryTests
@@ -19,21 +19,27 @@ namespace Test.Infrastructure
                 new CategoryEntity { Name = "BBB" },
                 new CategoryEntity { Name = "ZZZ" },
                 new CategoryEntity { Name = "AAA" },
-            };
+            }.AsQueryable();
 
-            //var mockSet = new Mock<DbSet<CategoryEntity>>();
-            //mockSet.As<IDbAsyncEnumerable<CategoryEntity>>()
-            //.Setup(m => m.GetAsyncEnumerator())
-            //    .Returns(new TestDbAsyncEnumerator<CategoryEntity>(data.GetEnumerator()));
-            //mockSet.As<IQueryable<CategoryEntity>>()
-            //.Setup(m => m.Provider)
-            //.Returns(new TestDbAsyncQueryProvider<CategoryEntity>(data.Provider));
-            //mockSet.As<IQueryable<CategoryEntity>>().Setup(m => m.Expression).Returns(data.Expression);
-            //mockSet.As<IQueryable<CategoryEntity>>().Setup(m => m.ElementType).Returns(data.ElementType);
-            //mockSet.As<IQueryable<CategoryEntity>>().Setup(m => m.GetEnumerator()).Returns(() => data.GetEnumerator());
-            var dat= CategoryMockSet.MockSet(data);
+            var mockSet = new Mock<DbSet<CategoryEntity>>();
+            mockSet.As<IDbAsyncEnumerable<CategoryEntity>>()
+                .Setup(m => m.GetAsyncEnumerator())
+                .Returns(new TestDbAsyncEnumerator<CategoryEntity>(data.GetEnumerator()));
+
+            mockSet.As<IQueryable<CategoryEntity>>()
+            .Setup(m => m.Provider)
+                .Returns(new TestDbAsyncQueryProvider<CategoryEntity>(data.Provider));
+
+            mockSet.As<IQueryable<CategoryEntity>>().Setup(m => m.Expression).Returns(data.Expression);
+            mockSet.As<IQueryable<CategoryEntity>>().Setup(m => m.ElementType).Returns(data.ElementType);
+            mockSet.As<IQueryable<CategoryEntity>>().Setup(m => m.GetEnumerator()).Returns(() => data.GetEnumerator());
+
             var mockContext = new Mock<DataContext>();
-            mockContext.Setup(c => c.Categories).Returns(dat.Object);
+            mockContext.Setup(c => c.Categories).Returns(mockSet.Object);
+
+
+
+
 
             var service = new CategoryRepository(mockContext.Object);
             var categories = (await service.GetAllAsync()).ToList();

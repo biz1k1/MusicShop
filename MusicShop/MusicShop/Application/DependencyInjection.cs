@@ -16,7 +16,8 @@ using MusicShop.Infrastructure.Repository;
 using MusicShop.Presentation.Common.FilterError;
 using MusicShop.Domain.Enums;
 using MusicShop.Application.Services.DbInitializer;
-using Microsoft.Extensions.Options;
+
+
 
 namespace MusicShop.Application
 {

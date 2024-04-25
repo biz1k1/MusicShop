@@ -13,6 +13,10 @@ namespace MusicShop.Infrastructure.Data
         {
             _authorizeOptions = authorizeOptions;
         }
+        public DataContext()
+        {
+
+        }
         public virtual DbSet<CategoryEntity> Categories { get; set; }
         public virtual DbSet<ProductEntity> Products { get; set; }
         public virtual DbSet<UserEntity> Users { get; set; }

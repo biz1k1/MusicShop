@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 using MusicShop.Presentation.Common.DTOs.Category;
 using FluentValidation;
@@ -68,7 +67,7 @@ namespace MusicShop.Presentation.Controllers
         [Authorize(Policy = "Create")]
         [Route(template: "Create")]
         [HttpPost]
-        public async Task<ActionResult> AddCategory(CategoryRequest? categoryRequest) {
+        public async Task<ActionResult> AddCategory(CategoryRequest categoryRequest) {
 
             ValidationResult validationResult = await _validator.ValidateAsync(categoryRequest);
 
@@ -115,20 +114,18 @@ namespace MusicShop.Presentation.Controllers
         {
 
             var categoryToChange = await _unitOfWork.Category.GetByIdAsync(categoryRequest.CategoryToChangeId);
-            if (categoryToChange == null)
+            var parentCategory = await _unitOfWork.Category.GetByIdAsync(categoryRequest.ParentCategoryId);
+            if (categoryToChange == null )
             {
                 throw new CategoryNotFound();
             }
 
-
-            var parentCategory = await _unitOfWork.Category.GetByIdAsync((int)categoryRequest.ParentCategoryId);
-            if (parentCategory.Id == categoryToChange.Id)
+            if (parentCategory?.Id == categoryToChange.Id)
             {
                 throw new CategoryReference();
             }
-
-            var categoryEntity = _mapper.Map<CategoryEntity>(categoryRequest);
-            parentCategory.ChildCategories.Add(categoryEntity);
+            categoryToChange.ParentCategoryId = parentCategory?.Id;
+            _unitOfWork.Category.Update(categoryToChange);
             await _unitOfWork.SaveAsync();
             return Ok();
         }

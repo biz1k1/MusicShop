@@ -31,14 +31,10 @@ namespace MusicShop.Application.Services.Authentication
             var loginDTO = _mapper.Map<LoginRequest,LoginDTO>(request);
 
             //check
-            var userByLogin = await _unitOfWork.User.GetUserByLoginAsync( loginDTO.Login);
-            if (userByLogin is not UserEntity user)
+            var user = await _unitOfWork.User.GetUserByLoginAsync( loginDTO.Login);
+            if (user == null || user.Login != loginDTO.Login|| user.Password!=loginDTO.Password )
             {
-                throw new InvalidLogin();
-            }
-            if (user.Password != user.Password)
-            {
-                throw new InvalidPassword();
+                throw new InvalidUserData();
             }
             //generate token
             var token = _jwtTokenGenerator.GenerateToken(user);

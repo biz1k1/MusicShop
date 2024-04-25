@@ -1,6 +1,6 @@
 ﻿namespace MusicShop.Application.Common.Errors
 {
-    public class InvalidLogin : Exception
+    public class InvalidUserData : Exception
     {
     }
 }

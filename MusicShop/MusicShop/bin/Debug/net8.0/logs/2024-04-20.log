@@ -1,0 +1,20 @@
+2024-04-20 13:04:45.6575 ERROR Catch exception:API error : Missing map from System.Collections.Generic.IEnumerable`1[System.String] to MusicShop.Presentation.Common.DTOs.User.UserResponse. Create using CreateMap<IEnumerable`1, UserResponse>.|| trace:0
+2024-04-20 13:05:11.0756 ERROR Catch exception:API error : Missing map from System.Collections.Generic.IEnumerable`1[System.String] to MusicShop.Presentation.Common.DTOs.User.UserResponse. Create using CreateMap<IEnumerable`1, UserResponse>.|| trace:0
+2024-04-20 13:05:50.9646 ERROR Catch exception:API error : Missing map from System.Collections.Generic.IEnumerable`1[System.String] to MusicShop.Presentation.Common.DTOs.User.UserResponse. Create using CreateMap<IEnumerable`1, UserResponse>.|| trace:0
+2024-04-20 13:10:50.7189 ERROR Catch exception:API error : Missing map from System.Collections.Generic.IEnumerable`1[System.String] to MusicShop.Presentation.Common.DTOs.User.UserResponse. Create using CreateMap<IEnumerable`1, UserResponse>.|| trace:0
+2024-04-20 13:11:01.4088 ERROR Catch exception:API error : Missing map from System.Collections.Generic.IEnumerable`1[System.String] to MusicShop.Presentation.Common.DTOs.User.UserResponse. Create using CreateMap<IEnumerable`1, UserResponse>.|| trace:0
+2024-04-20 13:13:46.5937 ERROR Catch exception:API error : Error mapping types.
+
+Mapping types:
+List`1 -> IEnumerable`1
+System.Collections.Generic.List`1[[MusicShop.Domain.Model.Core.UserEntity, MusicShop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.IEnumerable`1[[MusicShop.Presentation.Common.DTOs.User.UserResponse, MusicShop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]|| trace:0
+2024-04-20 13:13:56.7747 ERROR Catch exception:API error : Error mapping types.
+
+Mapping types:
+List`1 -> IEnumerable`1
+System.Collections.Generic.List`1[[MusicShop.Domain.Model.Core.UserEntity, MusicShop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.IEnumerable`1[[MusicShop.Presentation.Common.DTOs.User.UserResponse, MusicShop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]|| trace:0
+2024-04-20 13:26:33.7421 ERROR Catch exception:API error : Error mapping types.
+
+Mapping types:
+List`1 -> IEnumerable`1
+System.Collections.Generic.List`1[[MusicShop.Domain.Model.Core.UserEntity, MusicShop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.IEnumerable`1[[MusicShop.Presentation.Common.DTOs.User.UserResponse, MusicShop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]|| trace:0

@@ -8,7 +8,7 @@ namespace MusicShop.Infrastructure.Data.Configuration
 {
 
 
-    //Role ++
+    //Role 
     public  class RoleConfiguration : IEntityTypeConfiguration<RoleEntity> 
     {
         public void Configure(EntityTypeBuilder<RoleEntity> builder)
@@ -33,7 +33,7 @@ namespace MusicShop.Infrastructure.Data.Configuration
 
         }
     }
-    //Permission ++
+    //Permission 
     public class PermissionsConfiguration : IEntityTypeConfiguration<PermissionsEntity>
     {
         public void Configure(EntityTypeBuilder<PermissionsEntity> builder)

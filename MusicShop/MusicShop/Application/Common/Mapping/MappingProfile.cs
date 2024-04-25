@@ -40,7 +40,7 @@ namespace MusicShop.Application.Common.Mapping
             CreateMap<ProductRequestUpdate, ProductEntity>();
             //Authentication
 
-            CreateMap<LoginRequest,LoginDTO>();
+            CreateMap<LoginRequest, LoginDTO>();
             CreateMap<LoginDTO, LoginRequest>();
 
             CreateMap<RegisterRequest, RegisterDTO>();
@@ -48,10 +48,15 @@ namespace MusicShop.Application.Common.Mapping
             //Role
             CreateMap<UserRequest, RoleEntity>();
             //User
-            CreateMap<UserEntity, UserResponse>();
+            CreateMap<UserEntity, UserResponse>()
+                .ForMember(dest => dest.Id, src => src.MapFrom(x => x.Id))
+                .ForMember(dest => dest.Login, src => src.MapFrom(x => x.Login))
+                .ForMember(dest => dest.Email, src => src.MapFrom(x => x.Email))
+                .ForMember(dest => dest.Password, src => src.MapFrom(x => x.Password))
+                .ForMember(dest => dest.Role, src => src.MapFrom(x => x.Roles.Select(x => x.Name).FirstOrDefault())).ReverseMap();
         }
-
 
     }
 }
+
 

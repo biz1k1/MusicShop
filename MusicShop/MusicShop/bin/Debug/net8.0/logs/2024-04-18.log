@@ -1,0 +1,35 @@
+2024-04-18 14:00:27.6966 ERROR Catch exception:API error : Object reference not set to an instance of an object.|| trace:35
+2024-04-18 14:01:12.8078 ERROR Catch exception:API error : Object reference not set to an instance of an object.|| trace:35
+2024-04-18 14:02:33.0502 ERROR Catch exception:API error : Login or password is incorrect or does not exist.|| trace:37
+2024-04-18 14:02:36.3501 ERROR Catch exception:API error : Login or password is incorrect or does not exist.|| trace:37
+2024-04-18 14:20:23.0672 ERROR Catch exception:API error : Value cannot be null. (Parameter 'entity')|| trace:0
+2024-04-18 14:21:01.9999 ERROR Catch exception:API error : User was not found.|| trace:119
+2024-04-18 14:33:38.9799 ERROR Catch exception:API error : User was not found.|| trace:136
+2024-04-18 16:56:45.7872 ERROR Catch exception:API error : A role doesn't exist.|| trace:141
+2024-04-18 17:04:33.7644 ERROR Catch exception:API error : Login or password is incorrect or does not exist.|| trace:37
+2024-04-18 18:22:49.9750 ERROR Catch exception:API error : Missing type map configuration or unsupported mapping.
+
+Mapping types:
+List`1 -> UserResponse
+System.Collections.Generic.List`1[[MusicShop.Domain.Model.Core.UserEntity, MusicShop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> MusicShop.Presentation.Common.DTOs.User.UserResponse|| trace:0
+2024-04-18 18:28:20.6362 ERROR Catch exception:API error : Missing type map configuration or unsupported mapping.
+
+Mapping types:
+List`1 -> UserResponse
+System.Collections.Generic.List`1[[MusicShop.Domain.Model.Core.UserEntity, MusicShop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> MusicShop.Presentation.Common.DTOs.User.UserResponse|| trace:0
+2024-04-18 18:38:03.0766 ERROR Catch exception:API error : Missing type map configuration or unsupported mapping.
+
+Mapping types:
+List`1 -> UserResponse
+System.Collections.Generic.List`1[[MusicShop.Domain.Model.Core.UserEntity, MusicShop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> MusicShop.Presentation.Common.DTOs.User.UserResponse|| trace:0
+2024-04-18 18:40:41.5031 ERROR Catch exception:API error : Missing type map configuration or unsupported mapping.
+
+Mapping types:
+List`1 -> UserResponse
+System.Collections.Generic.List`1[[MusicShop.Domain.Model.Core.UserEntity, MusicShop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> MusicShop.Presentation.Common.DTOs.User.UserResponse|| trace:0
+2024-04-18 18:50:52.8730 ERROR Catch exception:API error : Missing type map configuration or unsupported mapping.
+
+Mapping types:
+List`1 -> UserResponse
+System.Collections.Generic.List`1[[MusicShop.Domain.Model.Core.UserEntity, MusicShop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> MusicShop.Presentation.Common.DTOs.User.UserResponse|| trace:0
+2024-04-18 18:53:19.4810 ERROR Catch exception:API error : Product was not found.|| trace:70
