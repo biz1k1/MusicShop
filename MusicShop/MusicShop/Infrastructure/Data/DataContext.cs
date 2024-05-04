@@ -3,6 +3,7 @@ using Microsoft.Extensions.Options;
 using MusicShop.Domain.Model.Aunth;
 using MusicShop.Domain.Model.Core;
 using MusicShop.Infrastructure.Data.Configuration;
+using System.Reflection;
 
 namespace MusicShop.Infrastructure.Data
 {

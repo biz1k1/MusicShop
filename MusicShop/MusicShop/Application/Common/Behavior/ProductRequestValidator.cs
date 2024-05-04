@@ -10,7 +10,7 @@ namespace MusicShop.Application.Common.Behavior
         {
             RuleFor(x => x.Name)
                 .NotEmpty()
-                .Length(0, 30);
+                .Length(0, 15);
             RuleFor(x => x.Description)
                 .NotEmpty();
             RuleFor(x => x.InStock)

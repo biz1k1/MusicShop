@@ -1,16 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MusicShop.Application.Common.Errors;
+﻿using MusicShop.Application.Common.Errors;
 using MusicShop.Application.Common.Interfaces.Authentication;
-using MusicShop.Infrastructure.Data;
 using MusicShop.Presentation.Common.DTOs.Authentication;
-using FluentResults;
-using Azure.Core;
-using System.Diagnostics;
 using AutoMapper;
 using MusicShop.Application.Common.Models;
 using MusicShop.Domain.Model.Core;
 using MusicShop.Domain.Enums;
 using MusicShop.Infrastructure.Repository;
+
+
 
 namespace MusicShop.Application.Services.Authentication
 {

@@ -16,37 +16,40 @@ namespace MusicShop.Application.Common.Mapping
         public MappingProfile()
         {
             // Category
-            CreateMap<CategoryEntity, CategoryResponse>();
-
-            CreateMap<CategoryResponse, CategoryEntity>();
-            CreateMap<CategoryRequest, CategoryEntity>();
+            CreateMap<CategoryEntity, CategoryResponse>().ReverseMap();
+            CreateMap<CategoryRequest, CategoryEntity>()
+                .ForMember(x => x.Product, opt => opt.Ignore())
+                .ForMember(x => x.ChildCategories, opt => opt.Ignore())
+                .ForMember(x => x.ParentCategory, opt => opt.Ignore())
+                .ForMember(x => x.ParentCategoryId, opt => opt.Ignore())
+                .ForMember(x => x.Id, opt => opt.Ignore())
+                .ReverseMap();
 
             CreateMap<CategoryEntity, CategoryResponseByProduct>()
                 .ForMember(dest => dest.Name, src => src.MapFrom(x => x.Name))
                 .ForMember(dest => dest.Id, src => src.MapFrom(x => x.Id))
                 .ForMember(dest => dest.products, src => src.MapFrom(x => x.Product));
 
-            CreateMap<CategoryEntity, CategoryRequestUpdate>();
+            CreateMap<CategoryEntity, CategoryRequestUpdate>()
+                .ForMember(x => x.CategoryToChangeId, prop => prop.Ignore())
+                .ReverseMap();
+                
 
-            CreateMap<CategoryRequestUpdate, CategoryEntity>();
 
             // Product
-            CreateMap<ProductEntity, ProductRequest>();
-            CreateMap<ProductRequest, ProductEntity>();
+            CreateMap<ProductEntity, ProductRequest>().ReverseMap();
 
             CreateMap<ProductEntity, ProductResponse>()
                 .ForMember(dest => dest.CategoryId, src => src.MapFrom(x => x.Category.Id));
 
-            CreateMap<ProductRequestUpdate, ProductEntity>();
+            CreateMap<ProductRequestUpdate, ProductEntity>()
+                .ForMember(x=>x.Category,prop=>prop.Ignore());
             //Authentication
 
-            CreateMap<LoginRequest, LoginDTO>();
-            CreateMap<LoginDTO, LoginRequest>();
+            CreateMap<LoginRequest, LoginDTO>().ReverseMap();
 
-            CreateMap<RegisterRequest, RegisterDTO>();
-            CreateMap<RegisterDTO, RegisterRequest>();
-            //Role
-            CreateMap<UserRequest, RoleEntity>();
+            CreateMap<RegisterRequest, RegisterDTO>().ReverseMap();
+          
             //User
             CreateMap<UserEntity, UserResponse>()
                 .ForMember(dest => dest.Id, src => src.MapFrom(x => x.Id))
@@ -54,6 +57,7 @@ namespace MusicShop.Application.Common.Mapping
                 .ForMember(dest => dest.Email, src => src.MapFrom(x => x.Email))
                 .ForMember(dest => dest.Password, src => src.MapFrom(x => x.Password))
                 .ForMember(dest => dest.Role, src => src.MapFrom(x => x.Roles.Select(x => x.Name).FirstOrDefault())).ReverseMap();
+            CreateMap<UserEntity, UserRequest>().ReverseMap();
         }
 
     }

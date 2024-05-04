@@ -25,7 +25,7 @@ namespace MusicShop.Infrastructure.Repository
             return await _dbSet.FindAsync(id);
         }
         
-        public  void Add(T entity)
+        public void Add(T entity)
         {
             _dbSet.AddAsync(entity);
         }

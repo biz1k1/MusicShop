@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicShop", "MusicShop\Musi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B0ADCB96-8BC5-491A-9C0F-309BA84BD604}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicShop.UnitTests", "MusicShop.UnitTests\MusicShop.UnitTests.csproj", "{3419ABE9-181B-4E39-9539-53C8BB28809C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +19,17 @@ Global
 		{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3419ABE9-181B-4E39-9539-53C8BB28809C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3419ABE9-181B-4E39-9539-53C8BB28809C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3419ABE9-181B-4E39-9539-53C8BB28809C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3419ABE9-181B-4E39-9539-53C8BB28809C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F} = {B0ADCB96-8BC5-491A-9C0F-309BA84BD604}
+		{3419ABE9-181B-4E39-9539-53C8BB28809C} = {B0ADCB96-8BC5-491A-9C0F-309BA84BD604}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {16AFD1EF-EF7C-408D-98B9-11EBEDF6DF7C}
