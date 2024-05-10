@@ -53,13 +53,12 @@ namespace MusicShop.Presentation.Controllers
         {
             var categoryEntity = await _unitOfWork.Category.GetCategoryWithChildren(id);
 
-            if (categoryEntity.Count()==0)
+            if (categoryEntity==null)
             {
                 throw new CategoryNotFound();
             }
 
-            var categoryResponse = _mapper.Map<List<CategoryEntity>, List<CategoryResponse>>((List<CategoryEntity>)categoryEntity);
-
+            var categoryResponse = _mapper.Map<CategoryEntity, CategoryResponse>(categoryEntity);
             return Ok(categoryResponse);
         }
 
@@ -112,7 +111,6 @@ namespace MusicShop.Presentation.Controllers
         [HttpPut]
         public async Task<ActionResult> Update(CategoryRequestUpdate categoryRequest)
         {
-
             var categoryToChange = await _unitOfWork.Category.GetByIdAsync(categoryRequest.CategoryToChangeId);
             var parentCategory = await _unitOfWork.Category.GetByIdAsync(categoryRequest.ParentCategoryId);
             if (categoryToChange == null )

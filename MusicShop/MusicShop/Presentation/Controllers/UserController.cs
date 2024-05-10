@@ -83,6 +83,10 @@ namespace MusicShop.Presentation.Controllers
         {
             
             var roleIdentity=await _unitOfWork.Role.GetByIdAsync((int)Role.Admin);
+            if (roleIdentity == null)
+            {
+                throw new InvalidRoleUser();
+            }
             var user=_mapper.Map<UserRequest, UserEntity>(userRequest);
             user.Roles = [roleIdentity];
 
@@ -119,9 +123,13 @@ namespace MusicShop.Presentation.Controllers
                 throw new UserNotFound();
             }
 
-            var usersRoles = await _unitOfWork.Role.GetExistRole(userDTO.Role);
+            var usersRoles = await _unitOfWork.Role.GetUserWithExistRole(userDTO.Role);
+            if (usersRoles == null )
+            {
+                throw new InvalidRoleUser();
+            }
             var roleIdentity = await _unitOfWork.Role.GetByIdAsync(usersRoles.Id);
-            if (usersRoles == null || roleIdentity == null)
+            if (roleIdentity == null)
             {
                 throw new InvalidRoleUser();
             }

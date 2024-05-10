@@ -37,14 +37,14 @@ namespace MusicShop.Presentation.Controllers
         [HttpGet]
         public async Task<ActionResult> GetProductByCategory(int id)
         {
-            var category = await _unitOfWork.Category.CategoryWithProducts(id);
+            var category = await _unitOfWork.Category.GetCategoryWithProducts(id);
 
             if (category == null)
             {
                 throw new CategoryNotFound();
             }
 
-            var productResponse = _mapper.Map<List<CategoryEntity>, List<CategoryResponseByProduct>>((List<CategoryEntity>)category);
+            var productResponse = _mapper.Map<CategoryEntity, CategoryResponseByProduct>(category);
             return Ok(productResponse);
         }
 
@@ -79,7 +79,7 @@ namespace MusicShop.Presentation.Controllers
         [Authorize(Policy = "Create")]
         [HttpPost]
         [Route(template: "Create")]
-        public async Task<ActionResult> Add(ProductRequest product)
+        public async Task<ActionResult> Create(ProductRequest product)
         {
             ValidationResult validationResult = await _validator.ValidateAsync(product);
 

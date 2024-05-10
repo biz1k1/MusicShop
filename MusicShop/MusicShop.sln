@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicShop", "MusicShop\Musi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B0ADCB96-8BC5-491A-9C0F-309BA84BD604}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicShop.UnitTests", "MusicShop.UnitTests\MusicShop.UnitTests.csproj", "{3419ABE9-181B-4E39-9539-53C8BB28809C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicShop.Tests", "MusicShop.UnitTests\MusicShop.Tests.csproj", "{3419ABE9-181B-4E39-9539-53C8BB28809C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

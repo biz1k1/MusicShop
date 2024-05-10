@@ -3619,24 +3619,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\SystemX\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\SystemX\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\MusicShop.csproj",
+      "projectUniqueName": "C:\\Users\\SystemX\\Source\\Repos\\MusicShop\\MusicShop\\MusicShop\\MusicShop.csproj",
       "projectName": "MusicShop",
-      "projectPath": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\MusicShop.csproj",
+      "projectPath": "C:\\Users\\SystemX\\Source\\Repos\\MusicShop\\MusicShop\\MusicShop\\MusicShop.csproj",
       "packagesPath": "C:\\Users\\SystemX\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\obj\\",
+      "outputPath": "C:\\Users\\SystemX\\Source\\Repos\\MusicShop\\MusicShop\\MusicShop\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\SystemX\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3419ABE9-181B-4E39-9539-53C8BB28809C}|MusicShop.UnitTests\\MusicShop.UnitTests.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop.unittests\\infrastructure\\repository\\category\\categoryrepositortests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3419ABE9-181B-4E39-9539-53C8BB28809C}|MusicShop.UnitTests\\MusicShop.UnitTests.csproj|solutionrelative:musicshop.unittests\\infrastructure\\repository\\category\\categoryrepositortests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3419ABE9-181B-4E39-9539-53C8BB28809C}|MusicShop.UnitTests\\MusicShop.Tests.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop.unittests\\presentation.unittest\\usercontrollertests\\testuserexceptioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3419ABE9-181B-4E39-9539-53C8BB28809C}|MusicShop.UnitTests\\MusicShop.Tests.csproj|solutionrelative:musicshop.unittests\\presentation.unittest\\usercontrollertests\\testuserexceptioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3419ABE9-181B-4E39-9539-53C8BB28809C}|MusicShop.UnitTests\\MusicShop.UnitTests.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop.unittests\\infrastructure\\repository\\mockrepository\\mockcategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3419ABE9-181B-4E39-9539-53C8BB28809C}|MusicShop.UnitTests\\MusicShop.UnitTests.csproj|solutionrelative:musicshop.unittests\\infrastructure\\repository\\mockrepository\\mockcategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\presentation\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\presentation\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\infrastructure\\repository\\interface\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\infrastructure\\repository\\interface\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\infrastructure\\repository\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\infrastructure\\repository\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,28 +34,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CategoryRepositorTests.cs",
-              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop.UnitTests\\Infrastructure\\Repository\\Category\\CategoryRepositorTests.cs",
-              "RelativeDocumentMoniker": "MusicShop.UnitTests\\Infrastructure\\Repository\\Category\\CategoryRepositorTests.cs",
-              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop.UnitTests\\Infrastructure\\Repository\\Category\\CategoryRepositorTests.cs",
-              "RelativeToolTip": "MusicShop.UnitTests\\Infrastructure\\Repository\\Category\\CategoryRepositorTests.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAAAEAAAAAkAAAA",
+              "DocumentIndex": 2,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Infrastructure\\Repository\\interface\\IRepository.cs",
+              "RelativeDocumentMoniker": "MusicShop\\Infrastructure\\Repository\\interface\\IRepository.cs",
+              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Infrastructure\\Repository\\interface\\IRepository.cs",
+              "RelativeToolTip": "MusicShop\\Infrastructure\\Repository\\interface\\IRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T11:51:57.134Z",
+              "WhenOpened": "2024-05-10T17:28:48.071Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Infrastructure\\Repository\\Repository.cs",
+              "RelativeDocumentMoniker": "MusicShop\\Infrastructure\\Repository\\Repository.cs",
+              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Infrastructure\\Repository\\Repository.cs",
+              "RelativeToolTip": "MusicShop\\Infrastructure\\Repository\\Repository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-10T17:28:24.67Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MockCategoryRepository.cs",
-              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop.UnitTests\\Infrastructure\\Repository\\MockRepository\\MockCategoryRepository.cs",
-              "RelativeDocumentMoniker": "MusicShop.UnitTests\\Infrastructure\\Repository\\MockRepository\\MockCategoryRepository.cs",
-              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop.UnitTests\\Infrastructure\\Repository\\MockRepository\\MockCategoryRepository.cs",
-              "RelativeToolTip": "MusicShop.UnitTests\\Infrastructure\\Repository\\MockRepository\\MockCategoryRepository.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAYwCUAAAAoAAAA",
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Presentation\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "MusicShop\\Presentation\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Presentation\\Controllers\\UserController.cs",
+              "RelativeToolTip": "MusicShop\\Presentation\\Controllers\\UserController.cs",
+              "ViewState": "AQIAAGsAAAAAAAAAAADwv30AAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T11:36:25.117Z",
+              "WhenOpened": "2024-05-10T14:06:48.368Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TestUserExceptionController.cs",
+              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop.UnitTests\\Presentation.UnitTest\\UserControllerTests\\TestUserExceptionController.cs",
+              "RelativeDocumentMoniker": "MusicShop.UnitTests\\Presentation.UnitTest\\UserControllerTests\\TestUserExceptionController.cs",
+              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop.UnitTests\\Presentation.UnitTest\\UserControllerTests\\TestUserExceptionController.cs",
+              "RelativeToolTip": "MusicShop.UnitTests\\Presentation.UnitTest\\UserControllerTests\\TestUserExceptionController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADcAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-10T13:39:59.373Z",
               "EditorCaption": ""
             }
           ]

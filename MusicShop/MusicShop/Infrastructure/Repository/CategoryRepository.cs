@@ -10,13 +10,13 @@ namespace MusicShop.Infrastructure.Repository
         {
         }
 
-        public async Task<IEnumerable<CategoryEntity>> GetCategoryWithChildren(int id)
+        public async Task<CategoryEntity?> GetCategoryWithChildren(int id)
         {
-            return await _dbContext.Categories.Where(x => x.Id == id).Include(x => x.ChildCategories).ThenInclude(x => x.ChildCategories).ToListAsync();
+            return await _dbContext.Categories.Where(x => x.Id == id).Include(x => x.ChildCategories).ThenInclude(x => x.ChildCategories).FirstOrDefaultAsync();
         }
-        public async Task<IEnumerable<CategoryEntity>> CategoryWithProducts(int id)
+        public async Task<CategoryEntity?> GetCategoryWithProducts(int id)
         {
-            return await _dbContext.Categories.Where(x=>x.Id==id).Include(x => x.Product).ToListAsync();
+            return await _dbContext.Categories.Where(x => x.Id == id).Include(x => x.Product).FirstOrDefaultAsync();
         }
 
     }
