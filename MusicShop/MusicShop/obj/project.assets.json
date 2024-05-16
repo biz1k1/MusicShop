@@ -3624,11 +3624,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SystemX\\Source\\Repos\\MusicShop\\MusicShop\\MusicShop\\MusicShop.csproj",
+      "projectUniqueName": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\MusicShop.csproj",
       "projectName": "MusicShop",
-      "projectPath": "C:\\Users\\SystemX\\Source\\Repos\\MusicShop\\MusicShop\\MusicShop\\MusicShop.csproj",
+      "projectPath": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\MusicShop.csproj",
       "packagesPath": "C:\\Users\\SystemX\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SystemX\\Source\\Repos\\MusicShop\\MusicShop\\MusicShop\\obj\\",
+      "outputPath": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\SystemX\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3744,7 +3744,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

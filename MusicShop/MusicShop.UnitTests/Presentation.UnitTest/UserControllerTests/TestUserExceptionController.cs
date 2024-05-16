@@ -25,7 +25,7 @@ namespace MusicShop.Tests.Presentation.UnitTest.UserControllerTests
             sut = new UserController(mockUnitOfWork.Object,mockMapper.Object,mockUserServiceHandler.Object);
         }
         [Fact]
-        public async Task Success_when_GetUserById_method_catch_UserNotFound_exception_when_UserObject_NULL()
+        public async Task GetUserById_throw_UserNotFound_exception_when_UserObject_NULL()
         {
             mockUnitOfWork.Setup(x => x.User).Returns(mockUserRepository.Object);
 
@@ -34,7 +34,7 @@ namespace MusicShop.Tests.Presentation.UnitTest.UserControllerTests
             await Assert.ThrowsAsync<UserNotFound>(() => result);
         }
         [Fact]
-        public async Task Success_when_RemoveUser_method_catch_UserNotFound_exception_when_UserObject_NULL()
+        public async Task RemoveUser_throw_UserNotFound_exception_when_UserObject_NULL()
         {
             mockUnitOfWork.Setup(x => x.User).Returns(mockUserRepository.Object);
 
@@ -43,7 +43,7 @@ namespace MusicShop.Tests.Presentation.UnitTest.UserControllerTests
             await Assert.ThrowsAsync<UserNotFound>(() => result);
         }
         [Fact]
-        public async Task Success_when_UpdateUser_method_catch_UserNotFound_exception_when_UserObject_NULL()
+        public async Task UpdateUser_throw_UserNotFound_exception_when_UserObject_NULL()
         {
             mockUnitOfWork.Setup(x => x.User).Returns(mockUserRepository.Object);
 
@@ -52,7 +52,7 @@ namespace MusicShop.Tests.Presentation.UnitTest.UserControllerTests
             await Assert.ThrowsAsync<UserNotFound>(() => result);
         }
         [Fact]
-        public async Task Success_when_UpdateUser_method_catch_UserNotFound_exception_when_UserRoleNULL()
+        public async Task UpdateUser_throw_UserNotFound_exception_when_UserRole_NULL()
         {
             mockUserRepository.Setup(x => x.GetUserIncludeRoleAsync(It.IsAny<int>())).ReturnsAsync(new UserEntity());
             mockUnitOfWork.Setup(x => x.Role).Returns(mockRoleRepository.Object);
@@ -63,7 +63,7 @@ namespace MusicShop.Tests.Presentation.UnitTest.UserControllerTests
             await Assert.ThrowsAsync<InvalidRoleUser>(() => result);
         }
         [Fact]
-        public async Task Success_when_UpdateUser_method_catch_UserNotFound_exception_when_RoleIdentityObject_NULL()
+        public async Task UpdateUser_throw_UserNotFound_exception_when_RoleIdentityObject_NULL()
         {
             mockRoleRepository.Setup(x => x.GetUserWithExistRole(It.IsAny<string>())).ReturnsAsync(new RoleEntity());
             mockUserRepository.Setup(x => x.GetUserIncludeRoleAsync(It.IsAny<int>())).ReturnsAsync(new UserEntity());
@@ -75,7 +75,7 @@ namespace MusicShop.Tests.Presentation.UnitTest.UserControllerTests
             await Assert.ThrowsAsync<InvalidRoleUser>(() => result);
         }
         [Fact]
-        public async Task Success_when_AddAdminUser_method_catch_UserNotFound_exception_when_RoleIdentity_NULL()
+        public async Task AddAdminUser_throw_UserNotFound_exception_when_RoleIdentity_NULL()
         {
             mockUnitOfWork.Setup(x => x.Role).Returns(mockRoleRepository.Object);
 

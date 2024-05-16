@@ -21,7 +21,7 @@ namespace MusicShop.Presentation.Common.FilterError
             {
                 Title = $"API error : {exception.Message}",
                 Status = (int)HttpStatusCode.InternalServerError,
-                Detail = $"{typeof(Exception)}"
+                Detail = $"{exception.InnerException.Message}"
 
             };
 

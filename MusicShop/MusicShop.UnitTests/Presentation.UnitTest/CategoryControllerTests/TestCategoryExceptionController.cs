@@ -35,7 +35,7 @@ namespace MusicShop.Tests.Presentation.UnitTest.CategoryControllerTest
         }
 
         [Fact]
-        public async Task Success_when_GetCategoryById_METHOD_catch_CategoryNotFound_exception_when_CategoryObject_NULL()
+        public async Task GetCategoryById_throw_CategoryNotFound_exception_when_CategoryObject_NULL()
         {
             //arrange
             mockUnitOfWork.Setup(x => x.Category).Returns(mockCategoryRepository.Object);
@@ -47,7 +47,7 @@ namespace MusicShop.Tests.Presentation.UnitTest.CategoryControllerTest
 
         }
         [Fact]
-        public async Task Success_when_Delete_METHOD_catch_CategoryNotFound_exception_CategoryObject_NULL()
+        public async Task Delete_throw_CategoryNotFound_exception__when_CategoryObject_NULL()
         {
             //arrange
             mockUnitOfWork.Setup(x => x.Category).Returns(mockCategoryRepository.Object);
@@ -60,7 +60,7 @@ namespace MusicShop.Tests.Presentation.UnitTest.CategoryControllerTest
         }
 
         [Fact]
-        public async Task Success_when_Update_METHOD_catch_CategoryNotFound_exception_when_CategoryObject_NULL()
+        public async Task Update_throw_CategoryNotFound_exception_when_CategoryObject_NULL()
         {
             //arrange
             const int sameIntNumberForException = 10;

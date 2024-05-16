@@ -32,7 +32,7 @@ namespace MusicShop.Tests.Presentation.UnitTest.ProductControllerTests
             sut = new ProductController(mockUnitOfWork.Object,mockMapper.Object,mockValidator);
         }
         [Fact]
-        public async Task Success_when_GetProductByCategory_method_catch_CategoryNotFound_exception_when_CategoryObject_NULL()
+        public async Task GetProductByCategory_throw_CategoryNotFound_exception_when_CategoryObject_NULL()
         {
             mockUnitOfWork.Setup(x => x.Category).Returns(mockCategoryRepository.Object);
 
@@ -41,7 +41,7 @@ namespace MusicShop.Tests.Presentation.UnitTest.ProductControllerTests
             await Assert.ThrowsAsync<CategoryNotFound>(() => result);
         }
         [Fact]
-        public async Task Success_when_GetProductById_method_catch_ProductNotFound_exception_when_ProductObject_NULL()
+        public async Task GetProductById_throw_ProductNotFound_exception_when_ProductObject_NULL()
         {
             mockUnitOfWork.Setup(x => x.Product).Returns(mockProductRepository.Object);
 
@@ -50,7 +50,7 @@ namespace MusicShop.Tests.Presentation.UnitTest.ProductControllerTests
             await Assert.ThrowsAsync<ProductNotFound>(() => result);
         }
         [Fact]
-        public async Task Success_when_Add_method_Adding_Product_in_nonExistent_Category_catch_CategoryNotFound_exception()
+        public async Task Add_throw_CategoryNotFound_exception_when_Adding_Product_in_nonExistent()
         {
             mockUnitOfWork.Setup(x => x.Category).Returns(mockCategoryRepository.Object);
             mockValidator.Validate(new ProductRequest());
@@ -60,7 +60,7 @@ namespace MusicShop.Tests.Presentation.UnitTest.ProductControllerTests
             await Assert.ThrowsAsync<CategoryNotFound>(() => result);
         }
         [Fact]
-        public async Task Success_when_Delete_method_catch_ProductNotFound_exception_when_ProductObject_NULL()
+        public async Task Delete_throw_ProductNotFound_exception_when_ProductObject_NULL()
         {
             mockUnitOfWork.Setup(x => x.Product).Returns(mockProductRepository.Object);
 
@@ -69,7 +69,7 @@ namespace MusicShop.Tests.Presentation.UnitTest.ProductControllerTests
             await Assert.ThrowsAsync<ProductNotFound>(() => result);
         }
         [Fact]
-        public async Task Success_when_Update_method_catch_ProductNotFound_exception_when_ProductObject_NULL()
+        public async Task Update_throw_ProductNotFound_exception_when_ProductObject_NULL()
         {
             mockUnitOfWork.Setup(x => x.Product).Returns(mockProductRepository.Object);
 
@@ -78,7 +78,7 @@ namespace MusicShop.Tests.Presentation.UnitTest.ProductControllerTests
             await Assert.ThrowsAsync<ProductNotFound>(() => result);
         }
         [Fact]
-        public async Task Success_when_Update_method_catch_CategoryNotFound_exception_when_CategoryObject_NULL()
+        public async Task Update_throw_CategoryNotFound_exception_when_CategoryObject_NULL()
         {
             mockProductRepository.Setup(x => x.GetProductIncludeCategoryByIdAsync(It.IsAny<int>())).ReturnsAsync(new ProductEntity());
             mockUnitOfWork.Setup(x => x.Category).Returns(mockCategoryRepository.Object);

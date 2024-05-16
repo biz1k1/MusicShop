@@ -9,7 +9,8 @@ using MusicShop.Application.Services.ServiceHandler;
 using MusicShop.Domain.Model.Core;
 using Microsoft.AspNetCore.Authorization;
 using MusicShop.Application.Common.Errors;
-
+using System.Net.Http;
+using System.Net.Mime;
 
 namespace MusicShop.Presentation.Controllers
 {
@@ -84,7 +85,7 @@ namespace MusicShop.Presentation.Controllers
             }
             _unitOfWork.Category.Add(categoryEntity);
             await _unitOfWork.SaveAsync();
-            return Ok();
+            return Ok(categoryEntity);
         }
 
 
