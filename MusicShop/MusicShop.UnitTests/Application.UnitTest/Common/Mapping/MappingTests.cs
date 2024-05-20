@@ -35,6 +35,7 @@ namespace MusicShop.UnitTests.Application.Common.Mapping
         [Theory]
         //Category
         [InlineData(typeof(CategoryEntity), typeof(CategoryRequest))]
+        [InlineData(typeof(CategoryRequest), typeof(CategoryEntity))]
         [InlineData(typeof(CategoryEntity), typeof(CategoryRequestUpdate))]
         //Product
         [InlineData(typeof(ProductEntity), typeof(ProductRequest))]

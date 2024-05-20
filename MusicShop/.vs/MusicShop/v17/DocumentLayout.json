@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{3419ABE9-181B-4E39-9539-53C8BB28809C}|MusicShop.UnitTests\\MusicShop.Tests.csproj|solutionrelative:musicshop.unittests\\application.unittest\\services\\fulltreecategories\\categoryserviceshandlertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\presentation\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\presentation\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop\\application\\services\\servicehandler\\category\\categoryserviceshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0899FA8-AA7B-41BC-BAF9-9E3184A70E3F}|MusicShop\\MusicShop.csproj|solutionrelative:musicshop\\application\\services\\servicehandler\\category\\categoryserviceshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3419ABE9-181B-4E39-9539-53C8BB28809C}|MusicShop.UnitTests\\MusicShop.Tests.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop.unittests\\application.unittest\\common\\mapping\\mappingtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3419ABE9-181B-4E39-9539-53C8BB28809C}|MusicShop.UnitTests\\MusicShop.Tests.csproj|solutionrelative:musicshop.unittests\\application.unittest\\common\\mapping\\mappingtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3419ABE9-181B-4E39-9539-53C8BB28809C}|MusicShop.UnitTests\\MusicShop.Tests.csproj|c:\\users\\systemx\\source\\repos\\musicshop\\musicshop\\musicshop.unittests\\presentation.unittest\\categorycontrollertests\\categorycontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3419ABE9-181B-4E39-9539-53C8BB28809C}|MusicShop.UnitTests\\MusicShop.Tests.csproj|solutionrelative:musicshop.unittests\\presentation.unittest\\categorycontrollertests\\categorycontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,8 +22,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CategoryControllerTests.cs",
+              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop.UnitTests\\Presentation.UnitTest\\CategoryControllerTests\\CategoryControllerTests.cs",
+              "RelativeDocumentMoniker": "MusicShop.UnitTests\\Presentation.UnitTest\\CategoryControllerTests\\CategoryControllerTests.cs",
+              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop.UnitTests\\Presentation.UnitTest\\CategoryControllerTests\\CategoryControllerTests.cs",
+              "RelativeToolTip": "MusicShop.UnitTests\\Presentation.UnitTest\\CategoryControllerTests\\CategoryControllerTests.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAA3wB4AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-20T14:11:16.175Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -36,35 +49,22 @@
               "RelativeDocumentMoniker": "MusicShop.UnitTests\\Application.UnitTest\\Services\\FullTreeCategories\\CategoryServicesHandlerTests.cs",
               "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop.UnitTests\\Application.UnitTest\\Services\\FullTreeCategories\\CategoryServicesHandlerTests.cs",
               "RelativeToolTip": "MusicShop.UnitTests\\Application.UnitTest\\Services\\FullTreeCategories\\CategoryServicesHandlerTests.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAkwCQAAAAAAAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwCcAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T13:07:52.49Z",
+              "WhenOpened": "2024-05-20T14:03:47.168Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CategoryController.cs",
-              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Presentation\\Controllers\\CategoryController.cs",
-              "RelativeDocumentMoniker": "MusicShop\\Presentation\\Controllers\\CategoryController.cs",
-              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Presentation\\Controllers\\CategoryController.cs",
-              "RelativeToolTip": "MusicShop\\Presentation\\Controllers\\CategoryController.cs",
-              "ViewState": "AQIAADYAAAAAAAAAAAAswFYAAAAqAAAA",
+              "Title": "CategoryServicesHandler.cs",
+              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Application\\Services\\ServiceHandler\\Category\\CategoryServicesHandler.cs",
+              "RelativeDocumentMoniker": "MusicShop\\Application\\Services\\ServiceHandler\\Category\\CategoryServicesHandler.cs",
+              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop\\Application\\Services\\ServiceHandler\\Category\\CategoryServicesHandler.cs",
+              "RelativeToolTip": "MusicShop\\Application\\Services\\ServiceHandler\\Category\\CategoryServicesHandler.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-13T10:41:42.25Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MappingTests.cs",
-              "DocumentMoniker": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop.UnitTests\\Application.UnitTest\\Common\\Mapping\\MappingTests.cs",
-              "RelativeDocumentMoniker": "MusicShop.UnitTests\\Application.UnitTest\\Common\\Mapping\\MappingTests.cs",
-              "ToolTip": "C:\\Users\\SystemX\\source\\repos\\MusicShop\\MusicShop\\MusicShop.UnitTests\\Application.UnitTest\\Common\\Mapping\\MappingTests.cs",
-              "RelativeToolTip": "MusicShop.UnitTests\\Application.UnitTest\\Common\\Mapping\\MappingTests.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAABEAAAA/AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T11:37:38.093Z",
+              "WhenOpened": "2024-05-20T14:04:31.906Z",
               "EditorCaption": ""
             }
           ]

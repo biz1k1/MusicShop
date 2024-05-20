@@ -79,7 +79,7 @@ namespace MusicShop.Presentation.Controllers
         [Authorize(Policy = "Create")]
         [HttpPost]
         [Route(template: "Create")]
-        public async Task<ActionResult> Create(ProductRequest product)
+        public async Task<ActionResult> CreateProduct(ProductRequest product)
         {
             ValidationResult validationResult = await _validator.ValidateAsync(product);
 
@@ -101,14 +101,14 @@ namespace MusicShop.Presentation.Controllers
             _unitOfWork.Product.Add(responseProduct);
             _unitOfWork.Category.Update(category);
             await _unitOfWork.SaveAsync();
-            return Ok();
+            return Ok(responseProduct);
         }
 
 
         [Authorize(Policy = "Delete")]
         [HttpDelete]
         [Route(template: "Delete")]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> DeleteProduct(int id)
         {
             var product = await _unitOfWork.Product.GetByIdAsync(id);
 
@@ -126,7 +126,7 @@ namespace MusicShop.Presentation.Controllers
         [Authorize(Policy = "Update")]
         [HttpPut]
         [Route(template: "Update")]
-        public async Task<ActionResult> Update(ProductRequestUpdate product)
+        public async Task<ActionResult> UpdateProduct(ProductRequestUpdate product)
         {
             ValidationResult validationResult = await _validator.ValidateAsync(product);
 

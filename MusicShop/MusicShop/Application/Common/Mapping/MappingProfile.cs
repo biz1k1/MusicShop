@@ -25,6 +25,9 @@ namespace MusicShop.Application.Common.Mapping
                 .ForMember(x => x.Id, opt => opt.Ignore())
                 .ReverseMap();
 
+            CreateMap<CategoryEntity, CategoryRequest>()
+                .ForMember(x => x.SubCategoryId, opt => opt.Ignore());
+
             CreateMap<CategoryEntity, CategoryResponseByProduct>()
                 .ForMember(dest => dest.Name, src => src.MapFrom(x => x.Name))
                 .ForMember(dest => dest.Id, src => src.MapFrom(x => x.Id))

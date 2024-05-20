@@ -22,7 +22,7 @@ namespace MusicShop.Infrastructure.Repository
 
         public async Task<T?> GetByIdAsync(int id)
         {
-            return await _dbSet.FirstOrDefaultAsync();
+            return await _dbSet.FindAsync(id);
         }
         
         public void Add(T entity)

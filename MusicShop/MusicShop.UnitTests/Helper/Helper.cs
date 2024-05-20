@@ -7,6 +7,8 @@ namespace MusicShop.Tests.Helpers
 {
     public class Helper
     {
+        #region Category setter
+
         public static CategoryEntity GetCategory()
         {
             var category = new CategoryEntity()
@@ -24,7 +26,7 @@ namespace MusicShop.Tests.Helpers
             };
             return category;
         }
-        public static List<CategoryEntity> GetCategoryList()
+        public static List<CategoryEntity> GetCategoriesList()
         {
             var categories = new List<CategoryEntity>
             {
@@ -52,5 +54,35 @@ namespace MusicShop.Tests.Helpers
             return categories;
            
         }
+        #endregion
+
+        #region Product setter
+        public static List<ProductEntity> GetProductsList()
+        {
+            var products = new List<ProductEntity>()
+            {
+                new ProductEntity()
+                {
+                    Id=1,
+                    Name="Product",
+                },
+                new ProductEntity()
+                {
+                    Id=2,
+                    Name="Product 2",
+                }
+            };
+            return products;
+        }
+        public static ProductEntity GetProduct()
+        {
+            var product = new ProductEntity()
+            {
+                Id = 1,
+                Name = "Product 1",
+            };
+            return product;
+        }
+        #endregion
     }
 }

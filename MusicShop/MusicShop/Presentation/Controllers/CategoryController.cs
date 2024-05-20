@@ -92,7 +92,7 @@ namespace MusicShop.Presentation.Controllers
         [Authorize(Policy = "Delete")]
         [Route(template: "Delete")]
         [HttpDelete]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> DeleteCategory(int id)
         {
             var category = await _unitOfWork.Category.GetByIdAsync(id);
 
@@ -110,14 +110,14 @@ namespace MusicShop.Presentation.Controllers
         [Authorize(Policy = "Update")]
         [Route(template: "Update")]
         [HttpPut]
-        public async Task<ActionResult> Update(CategoryRequestUpdate categoryRequest)
+        public async Task<ActionResult> UpdateCategory(CategoryRequestUpdate categoryRequest)
         {
             var categoryToChange = await _unitOfWork.Category.GetByIdAsync(categoryRequest.CategoryToChangeId);
-            var parentCategory = await _unitOfWork.Category.GetByIdAsync(categoryRequest.ParentCategoryId);
             if (categoryToChange == null )
             {
                 throw new CategoryNotFound();
             }
+            var parentCategory = await _unitOfWork.Category.GetByIdAsync(categoryRequest.ParentCategoryId);
 
             if (parentCategory?.Id == categoryToChange.Id)
             {
